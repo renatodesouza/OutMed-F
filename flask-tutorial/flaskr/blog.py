@@ -26,6 +26,8 @@ def cadastrar_cliente():
 
 def create():
     if request.method == 'POST':   
+        nome = request.form['nome']
+        email = request.form['email']
         db = get_db()
         db.execute(
             'INSERT INTO cliente (nome, email)'
