@@ -6,8 +6,6 @@ dist/
 build/
 *.egg-info/
 instance/
-*.sql
 *.pyc
-*.sqlite
 venv
 .vscode
