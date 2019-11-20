@@ -1,4 +1,5 @@
 DROP TABLE IF EXISTS user;
+<<<<<<< HEAD
 DROP TABLE IF EXISTS cliente;
 DROP TABLE IF EXISTS funcioanrio;
 DROP TABLE IF EXISTS fornecedor;
@@ -11,6 +12,9 @@ DROP TABLE IF EXISTS fone_cliente;
 DROP TABLE IF EXISTS fone_fornecedor;
 DROP TABLE IF EXISTS fone_funcionario;
 DROP TABLE IF EXISTS contato_fornecedor;
+=======
+DROP TABLE IF EXISTS post;
+>>>>>>> b4aeffcc020ebe2a522f3f064b358da17d060537
 
 CREATE TABLE user (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
