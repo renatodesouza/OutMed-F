@@ -10,3 +10,4 @@ instance/
 *.pyc
 *.sqlite
 venv
+.vscode
