@@ -22,8 +22,11 @@ def index():
 def cadastrar_cliente():
     return render_template('blog/cliente.html')
 
-@bp.route('/create', methods=('GET', 'POST'))
+@bp.route('/lista_cliente', methods=('GET', 'POST'))
+def lista_cliente():
+    return render_template('blog/lista_cliente')
 
+@bp.route('/create', methods=('GET', 'POST'))
 def create():
     if request.method == 'POST':   
         nome = request.form['nome']
@@ -35,6 +38,6 @@ def create():
             (nome, email)
         )
         db.commit()
-        return redirect(url_for('blog.index'))
+        return redirect(url_for('blog.lista_cliente'))
 
     return render_template('blog/cliente.html')
