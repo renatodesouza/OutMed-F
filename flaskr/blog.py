@@ -17,3 +17,24 @@ def index():
     #     ' ORDER BY created DESC'
     # ).fetchall()
     return render_template('blog/index.html')
+
+@bp.route('/cadastrar_cliente', methods=('GET', 'POST'))
+def cadastrar_cliente():
+    return render_template('blog/cliente.html')
+
+@bp.route('/create', methods=('GET', 'POST'))
+
+def create():
+    if request.method == 'POST':   
+        nome = request.form['nome']
+        email = request.form['email']
+        db = get_db()
+        db.execute(
+            'INSERT INTO cliente (nome, email)'
+            ' VALUES (?, ?)',
+            (nome, email)
+        )
+        db.commit()
+        return redirect(url_for('blog.index'))
+
+    return render_template('blog/cliente.html')
