@@ -20,7 +20,7 @@ CREATE TABLE user (
 
 CREATE TABLE cliente(
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
-  	nome VARCHAR (80),
+	nome VARCHAR (80),
 	email VARCHAR (80)
 );
 
