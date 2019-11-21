@@ -24,13 +24,19 @@ def cadastrar_cliente():
 
 @bp.route('/lista_cliente', methods=('GET', 'POST'))
 def lista_cliente():
-    return render_template('blog/lista_cliente')
+    return render_template('blog/lista_cliente.html')
 
 @bp.route('/create', methods=('GET', 'POST'))
 def create():
     if request.method == 'POST':   
+        id = request.form['id']
         nome = request.form['nome']
         email = request.form['email']
+        cidade = request.form['cidade']
+        bairro = request.form['bairro']
+        rua = request.form['rua']
+        numero = request.form['numero']
+
         db = get_db()
         db.execute(
             'INSERT INTO cliente (nome, email)'
@@ -38,6 +44,14 @@ def create():
             (nome, email)
         )
         db.commit()
+
+        db.execute(
+            'INSERT INTO end_cliente (id_cliente, cidade, bairro, rua, numero)'
+            ' VALUES (?, ?, ?, ?, ?)',
+            (id_cliente, cidade, bairro, rua, numero)
+        )
+        db.commit()
+
         return redirect(url_for('blog.lista_cliente'))
 
     return render_template('blog/cliente.html')
