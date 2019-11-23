@@ -61,7 +61,7 @@ def login():
         if error is None:
             session.clear()
             session['user_id'] = user['id']
-            return redirect(url_for('index'))
+            return redirect(url_for('blog.index'))
 
         flash(error)
 
@@ -87,7 +87,13 @@ def load_logged_in_user():
 @bp.route('/logout')
 def logout():
     session.clear()
-    return redirect(url_for('index'))
+    return redirect(url_for('blog.index'))
+
+
+@bp.route('/forgot_password')
+def forgot_password():
+    return render_template('auth/forgot_password.html')
+
 
 #-------------------------------VERIFICA SE UM USUARIO ESTA LOGADO------------------------
 #-------------------------------E REDIRECIONA PARA PAGINA DE LOGIN------------------------
