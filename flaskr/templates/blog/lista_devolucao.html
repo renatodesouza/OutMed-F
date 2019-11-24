@@ -1,0 +1,36 @@
+{% extends 'blog/base_tabela.html' %}
+
+{% block content_tabela_devolucao %}
+<div class="basic-tb-hd">
+    {% block content_titulo_devolucao %}
+    <h2>Devoluções</h2>
+    {% endblock %}
+</div>
+<div class="table-responsive">
+    <table id="data-table-basic" class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Data</th>
+                <th>Motivo</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for devolucao in devolucao %}
+            <tr>
+                <td>{{ devolucao.id }}</td>
+                <td>{{ devolucao.Data }}</td>
+                <td>{{ devolucao.Motivo }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>ID</th>
+                <th>Data</th>
+                <th>Motivo</th>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+{% endblock %}

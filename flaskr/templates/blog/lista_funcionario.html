@@ -1,0 +1,40 @@
+{% extends 'blog/base_tabela.html' %}
+
+{% block content_tabela_funcionario %}
+<div class="basic-tb-hd">
+    {% block content_titulo_funcionario %}
+    <h2>Tabela de Funcionario</h2>
+    {% endblock %}
+</div>
+<div class="table-responsive">
+    <table id="data-table-basic" class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>CPF</th>
+                <th>Celular</th>
+                <th>Fixo</th>
+            </tr>
+        </thead>
+        <tbody>
+                {% for funcionario in funcionario %}
+                <tr>
+                    <td>{{ funcionario.first_name }}</td>
+                    <td>{{ funcionario.email }}</td>
+                    <td>{{ funcionario.cpf }}</td>
+                    <td>{{ funcionario.celular }}</td>
+                    <td>{{ funcionario.fixo }}</td>
+                </tr>
+                {% endfor %}
+        </tbody>
+        <tfoot>
+            <th>Name</th>
+            <th>Email</th>
+            <th>CPF</th>
+            <th>Celular</th>
+            <th>Fixo</th>
+        </tfoot>
+    </table>
+</div>
+{% endblock %}

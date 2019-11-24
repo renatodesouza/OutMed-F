@@ -1,0 +1,53 @@
+{% extends 'blog/base_tabela.html' %}
+
+{% block content_tabela_livros %}
+<div class="basic-tb-hd">
+    {% block content_titulo_livros %}
+    <h2>Livros</h2>
+    {% endblock %}
+</div>
+<div class="table-responsive">
+    <table id="data-table-basic" class="table table-striped">
+        <thead>
+            <tr>
+                <th>ISBN</th>
+                <th>Editora</th>
+                <th>Edição</th>
+                <th>Titulo</th>
+                <th>Autor</th>
+                <th>Genero</th>
+                <th>Preço de compra</th>
+                <th>Preço de venda</th>
+                <th>Quantidade</th>
+            </tr>
+        </thead>
+        <tbody>
+                {% for livro in livros %}
+                <tr>
+                    <td>{{ livro.id }}</td>
+                    <td>{{ livro.ISBN }}</td>
+                    <td>{{ livro.editora }}</td>
+                    <td>{{ livro.edicao }}</td>
+                    <td>{{ livro.titulo }}</td>
+                    <td>{{ livro.autor }}</td>
+                    <td>{{ livro.genero }}</td>
+                    <td>{{ livro.preco_compra }}</td>
+                    <td>{{ livro.preco_venda }}</td>
+                    <td>{{ livro.quantidade }}</td>
+                </tr>
+                {% endfor %}
+        </tbody>
+        <tfoot>
+            <th>ISBN</th>
+            <th>Editora</th>
+            <th>Edição</th>
+            <th>Titulo</th>
+            <th>Autor</th>
+            <th>Genero</th>
+            <th>Preço de compra</th>
+            <th>Preço de venda</th>
+            <th>Quantidade</th>
+        </tfoot>
+    </table>
+</div>
+{% endblock %}
