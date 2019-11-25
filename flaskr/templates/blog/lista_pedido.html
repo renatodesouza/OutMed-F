@@ -1,0 +1,48 @@
+{% extends 'blog/base_tabela.html' %}
+
+{% block content_tabela_pedido %}
+<div class="basic-tb-hd">
+    {% block content_titulo_pedido %}
+    <h2>Pedidos</h2>
+    {% endblock %}
+</div>
+<div class="table-responsive">
+    <table id="data-table-basic" class="table table-striped">
+        <thead>
+            <tr>
+                <th>Titulo</th>
+                <th>Funcionário</th>
+                <th>Cliente</th>
+                <th>Data</th>
+                <th>Valor</th>
+                <th>Quantidade</th>
+                <th>Situação</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pedido in pedido %}
+            <tr>
+                <td>{{ pedido.Titulo }}</td>
+                <td>{{ pedido.cod_funcionario }}</td>
+                <td>{{ pedido.cod_cliente }}</td>
+                <td>{{ pedido.Data }}</td>
+                <td>{{ pedido.Valor }}</td>
+                <td>{{ pedido.quantidade }}</td>
+                <td>{{ pedido.situação }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>Titulo</th>
+                <th>Funcionário</th>
+                <th>Cliente</th>
+                <th>Data</th>
+                <th>Valor</th>
+                <th>Quantidade</th>
+                <th>Situação</th>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+{% endblock %}          

@@ -1,0 +1,50 @@
+{% extends 'blog/base_tabela.html' %}
+
+{% block content_tabela_fornecedor %}
+<div class="basic-tb-hd">
+    {% block content_titulo_fornecedor %}
+    <h2>Fornecedores</h2>
+    {% endblock %}
+</div>
+<div class="table-responsive">
+    <table id="data-table-basic" class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>CNPJ</th>
+                <th>Cidade</th>
+                <th>Bairro</th>
+                <th>Rua</th>
+                <th>Numero</th>
+                <th>CEP</th>
+            </tr>
+        </thead>
+        <tbody>
+                {% for fornecedor in fornecedor %}
+                <tr>
+                    <td>{{ fornecedor.id }}</td>
+                    <td>{{ fornecedor.first_name }}</td>
+                    <td>{{ fornecedor.email }}</td>
+                    <td>{{ fornecedor.cnpj }}</td>
+                    <td>{{ fornecedor.cidade }}</td>
+                    <td>{{ fornecedor.bairro }}</td>
+                    <td>{{ fornecedor.rua }}</td>
+                    <td>{{ fornecedor.numero }}</td>
+                    <td>{{ fornecedor.cep }}</td>
+                </tr>
+                {% endfor %}
+        </tbody>
+        <tfoot>
+            <th>Name</th>
+            <th>Email</th>
+            <th>CNPJ</th>
+            <th>Cidade</th>
+            <th>Bairro</th>
+            <th>Rua</th>
+            <th>Numero</th>
+            <th>CEP</th>
+        </tfoot>
+    </table>  
+</div>
+{% endblock %}

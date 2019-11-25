@@ -50,7 +50,7 @@
             <link rel="stylesheet" href="{{ url_for ('static', filename='css/main.css')  }}">
             <!-- style CSS
                 ============================================ -->
-            <link rel="stylesheet" href="{{ url_for ('static', filename='css/style.css')  }}">
+            <link rel="stylesheet" href="{{ url_for ('static', filename='style.css')  }}">
             <!-- responsive CSS
                 ============================================ -->
             <link rel="stylesheet" href="{{ url_for ('static', filename='css/responsive.css')  }}">
@@ -82,7 +82,7 @@
                 <div class="fm-checkbox">
                     <label><input type="checkbox" class="i-checks"> <i></i> Keep me signed in</label>
                 </div>
-                <a href="#l-register" data-ma-action="nk-login-switch" data-ma-block="#l-register" class="btn btn-login btn-success btn-float"><i class="notika-icon notika-right-arrow right-arrow-ant"></i></a>
+                <a href="{{ url_for ('blog.index') }}" data-ma-action="nk-login-switch" data-ma-block="#l-register" class="btn btn-login btn-success btn-float"><i class="notika-icon notika-right-arrow right-arrow-ant"></i>Entrar</a>
             </div>
 
             <div class="nk-navigation nk-lg-ic">
