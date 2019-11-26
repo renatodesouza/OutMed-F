@@ -1,5 +1,4 @@
 DROP TABLE IF EXISTS user;
-<<<<<<< HEAD
 DROP TABLE IF EXISTS cliente;
 DROP TABLE IF EXISTS funcioanrio;
 DROP TABLE IF EXISTS fornecedor;
@@ -12,9 +11,6 @@ DROP TABLE IF EXISTS fone_cliente;
 DROP TABLE IF EXISTS fone_fornecedor;
 DROP TABLE IF EXISTS fone_funcionario;
 DROP TABLE IF EXISTS contato_fornecedor;
-=======
-DROP TABLE IF EXISTS post;
->>>>>>> b4aeffcc020ebe2a522f3f064b358da17d060537
 
 CREATE TABLE user (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -25,95 +21,82 @@ CREATE TABLE user (
 CREATE TABLE cliente(
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	nome VARCHAR (80),
-	email VARCHAR (80)
+	sobrenome VARCHAR (130),
+	email VARCHAR (80),
+	celular INTEGER,
+	fone INTEGER,
+	cep VARCHAR (10),
+	rua VARCHAR (80),
+	bairro VARCHAR (80),
+	cidade VARCHAR (80),
+	uf VARCHAR (2),
+	numero VARCHAR (10)
 );
 
 CREATE TABLE funcionario(
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
-    id_user INTEGER,
-  	nome VARCHAR (80),
-  	email VARCHAR (80),
-    cpf VARCHAR (80),
-    FOREIGN KEY (id_user) REFERENCES user(id)
+	id_user INTEGER,
+	nome VARCHAR (80),
+	email VARCHAR (80),
+	celular INTEGER,
+	fone INTEGER,
+	cep VARCHAR (10),
+	rua VARCHAR (80),
+	bairro VARCHAR (80),
+	cidade VARCHAR (80),
+	uf VARCHAR (2),
+	numero VARCHAR (10)
+	FOREIGN KEY (id_user) REFERENCES user(id)
 );
 
 CREATE TABLE fornecedor(
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
-  	nome VARCHAR (80),
-  	email VARCHAR (80),
-    cnpj VARCHAR (100)
+	nome VARCHAR (80),
+	cnpj VARCHAR (100),
+	email VARCHAR (80),
+	fone1 INTEGER,
+	fone2 INTEGER,
+	cep VARCHAR (10),
+	rua VARCHAR (80),
+	bairro VARCHAR (80),
+	cidade VARCHAR (80),
+	uf VARCHAR (2),
+	numero VARCHAR (10)
 );
 
 CREATE TABLE livro(
 	isbn INTEGER PRIMARY KEY,
-  	autor VARCHAR(80),
-  	editora VARCHAR(80),
-  	edicao VARCHAR(50),
-  	titulo VARCHAR (100),
-  	categoria VARCHAR (80)
+	autor VARCHAR(80),
+	editora VARCHAR(80),
+	edicao VARCHAR(50),
+	titulo VARCHAR (100),
+	categoria VARCHAR (80)
 );
 
 CREATE TABLE pedido(
 	id INTEGER PRIMARY KEY,
-  	isbn INTEGER,
-  	id_cliente INTEGER,
-  	id_funcionario INTEGER,
-  	data_pedido DATE,
-  	valor real,
-  	FOREIGN key (isbn) REFERENCES livro(isbn)
+	isbn INTEGER,
+	id_cliente INTEGER,
+	id_funcionario INTEGER,
+	data_pedido DATE,
+	valor real,
+	FOREIGN key (isbn) REFERENCES livro(isbn)
 );
 
-CREATE TABLE end_cliente(
+CREATE TABLE devolucao(
 	id INTEGER PRIMARY KEY,
-  	id_cliente INTEGER,
-  	cidade VARCHAR (80),
-  	bairro VARCHAR (80),
-  	rua VARCHAR (80),
-  	numero VARCHAR (10),
-  	FOREIGN key (id_cliente) REFERENCES cliente(id)
+	id_pedido INTEGER,
+	id_cliente INTEGER,
+	id_funcionario INTEGER,
+	FOREIGN key (id_cliente) REFERENCES cliente(id)
+	FOREIGN key (id_pedido) REFERENCES pedido(id)
+	FOREIGN key (id_funcionario) REFERENCES funcioanrio(id)
 );
-
-CREATE TABLE end_fornecedor(
-	id INTEGER PRIMARY KEY,
-  	id_fornecedor INTEGER,
-  	cidade VARCHAR (80),
-  	bairro VARCHAR (80),
-  	rua VARCHAR (80),
-  	numero VARCHAR (10),
-  	FOREIGN key (id_fornecedor) REFERENCES fornecedor(id)
-);
-
-CREATE TABLE end_funcionario(
-	id INTEGER PRIMARY KEY,
-  	id_funcionario INTEGER,
-  	cidade VARCHAR (80),
-  	bairro VARCHAR (80),
-  	rua VARCHAR (80),
-  	numero VARCHAR (10),
-  	FOREIGN key (id_funcionario) REFERENCES funcionario(id)
-);
-
-CREATE TABLE fone_funcionario(
-	id INTEGER PRIMARY KEY,
-  	id_funcionario INTEGER,
-  	fone1 INTEGER,
-  	fone2 INTEGER,
-  	FOREIGN key (id_funcionario) REFERENCES funcionario(id)
-);
-
-CREATE TABLE fone_fornecedor(
-	id INTEGER PRIMARY KEY,
-  	id_fornecedor INTEGER,
-  	fone1 INTEGER,
-  	fone2 INTEGER,
-  	FOREIGN key (id_fornecedor) REFERENCES fornecedor(id)
-);
-
 
 CREATE TABLE contato_fornecedor(
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
-  	id_fornecedor INTEGER,
-  	nome VARCHAR (80),
-  	email VARCHAR (80),
-  	FOREIGN key (id_fornecedor) REFERENCES fornecedor(id)
+	id_fornecedor INTEGER,
+	nome VARCHAR (80),
+	email VARCHAR (80),
+	FOREIGN key (id_fornecedor) REFERENCES fornecedor(id)
 );
