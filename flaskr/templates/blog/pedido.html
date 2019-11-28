@@ -500,7 +500,7 @@
                                 </li>
                                 <li><a href="{{ url_for ('blog.lista_livro') }}">Livros</a>
                                 </li>
-                                <li><a href=""></a>Representantes</a>
+                                <li><a href="{{ url_for ('blog.lista_representante') }}">Representantes</a>
                                 </li>
                                 <li><a href="{{ url_for ('blog.lista_pedido') }}">Pedido</a>
                                 </li>
@@ -520,7 +520,7 @@
                                 </li>
                                 <li><a href="">Remover Livros</a>
                                 </li>
-                                 <li><a href="">Cadastrar Representante</a> 
+                                <li><a href="{{ url_for ('blog.cadastrar_representante') }}">Cadastrar Representante</a>
                                 </li>
                                 <li><a href="{{ url_for ('blog.cadastrar_pedido') }}">Cadastrar Pedido</a>
                                 </li>
@@ -578,7 +578,7 @@
                   <i class="notika-icon notika-support"></i>
                 </div>
                 <div class="nk-int-st">
-                  <input type="text" class="form-control" placeholder="Nome">
+                  <input type="text" class="form-control" placeholder="ISBN">
                 </div>
               </div>
             </div>
@@ -588,7 +588,7 @@
                   <i class="notika-icon notika-support"></i>
                 </div>
                 <div class="nk-int-st">
-                  <input type="text" class="form-control" placeholder="Sobrenome">
+                  <input type="text" class="form-control" placeholder="Cliente">
                 </div>
               </div>
             </div>
@@ -598,86 +598,35 @@
                   <i class="notika-icon notika-mail"></i>
                 </div>
                 <div class="nk-int-st">
-                  <input type="text" class="form-control" placeholder="Email">
+                  <input type="text" class="form-control" placeholder="Funcionario">
                 </div>
               </div>
             </div>
-        </div>
-          <div class="row">
-          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-            <div class="form-group ic-cmp-int">
-              <div class="form-ic-cmp">
-                <i class="notika-icon notika-phone"></i>
-              </div>
-              <div class="nk-int-st">
-                <input type="text" class="form-control" data-mask="(999) 999-9999" placeholder="Celular">
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-4 col-sm- col-xs-12">
-              </div>
-          <div class="col-lg-4 col-md-4 col-sm- col-xs-12">
-            <div class="form-group ic-cmp-int">
-              <div class="form-ic-cmp">
-                <i class="notika-icon notika-phone"></i>
-              </div>
-              <div class="nk-int-st">
-                <input type="text" class="form-control" data-mask="(999) 999-9999" placeholder="Telefone">
-              </div>
-            </div>
-          </div>
           </div>
           <div class="row">
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
               <div class="form-group ic-cmp-int">
                 <div class="form-ic-cmp">
-                  <i class="notika-icon notika-house"></i>
+                  <i class="notika-icon notika-phone"></i>
                 </div>
                 <div class="nk-int-st">
-                  <input type="text" class="form-control" placeholder="C.E.P">
+                  <input type="text" class="form-control" placeholder="Data">
                 </div>
               </div>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+          
+            <div class="col-lg-4 col-md-4 col-sm- col-xs-12">
               <div class="form-group ic-cmp-int">
                 <div class="form-ic-cmp">
-                  <i class="notika-icon notika-house"></i>
+                  <i class="notika-icon notika-phone"></i>
                 </div>
                 <div class="nk-int-st">
-                  <input type="text" class="form-control" placeholder="Cidade">
+                  <input type="text" class="form-control"  placeholder="Valor">
                 </div>
               </div>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-              <div class="form-group ic-cmp-int form-elet-mg res-mg-fcs">
-                <div class="form-ic-cmp">
-                  <i class="notika-icon notika-wifi"></i>
-                </div>
-                <div class="nk-int-st">
-                  <input type="text" class="form-control" placeholder="Bairro">
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-              <div class="form-group ic-cmp-int form-elet-mg res-mg-fcs">
-                <div class="form-ic-cmp">
-                  <i class="notika-icon notika-house"></i>
-                </div>
-                <div class="nk-int-st">
-                  <input type="text" class="form-control" placeholder="Rua">
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12">
-              <div class="form-group ic-cmp-int form-elet-mg">
-                <div class="form-ic-cmp">
-                  <i class="notika-icon notika-edit"></i>
-                </div>
-                <div class="nk-int-st">
-                  <input type="text" class="form-control" placeholder="Nº">
-                </div>
-              </div>
-            </div>
+          </div>
+          
         </div>
         </div>
       </form>
