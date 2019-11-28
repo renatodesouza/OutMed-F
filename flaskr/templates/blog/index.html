@@ -496,11 +496,11 @@
                                 </li>
                                 <li><a href="{{ url_for ('blog.lista_fornecedor') }}">Fornecedores</a>
                                 </li>
-                                 <li><a href="{{ url_for ('blog.lista_funcionario') }}">Funcionário</a> 
+                                <li><a href="{{ url_for ('blog.lista_funcionario') }}">Funcionário</a> 
                                 </li>
                                 <li><a href="{{ url_for ('blog.lista_livro') }}">Livros</a>
                                 </li>
-                                <li><a href=""></a>Representantes</a>
+                                <li><a href="{{ url_for ('blog.lista_representante') }}">Representantes</a>
                                 </li>
                                 <li><a href="{{ url_for ('blog.lista_pedido') }}">Pedido</a>
                                 </li>
@@ -520,7 +520,7 @@
                                 </li>
                                 <li><a href="">Remover Livros</a>
                                 </li>
-                                 <li><a href="">Cadastrar Representante</a> 
+                                 <li><a href="{{ url_for ('blog.cadastrar_representante') }}">Cadastrar Representante</a> 
                                 </li>
                                 <li><a href="{{ url_for ('blog.cadastrar_pedido') }}">Cadastrar Pedido</a>
                                 </li>
