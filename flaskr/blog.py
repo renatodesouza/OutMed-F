@@ -106,7 +106,7 @@ def create_cliente():
         sobrenome = request.form['sobrenome']
         email = request.form['email']
         celular = request.form['celular']
-        telefone = request.form['telefone']
+        fone = request.form['fone']
         cep = request.form['cep']
         rua = request.form['rua']
         bairro = request.form['bairro']
