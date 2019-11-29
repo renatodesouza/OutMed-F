@@ -191,13 +191,15 @@ def create_livro():
         edicao = request.form['edicao']
         titulo = request.form['titulo']
         categoria = request.form['categoria']
+        preco_venda = request.form['preco_venda']
+        preco_compra = request.form['preco_compra']
         quantidade = request.form['quantidade']
 
         db = get_db()
         db.execute(
-            'INSERT INTO livro (isbn, autor, editora, edicao, titulo, categoria, quantidade)'
-            ' VALUES (?, ?, ?, ?, ?, ?, ?)',
-            (isbn, autor, editora, edicao, titulo, categoria, quantidade)
+            'INSERT INTO livro (isbn, autor, editora, edicao, titulo, categoria, preco_venda, preco_compra, quantidade)'
+            ' VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
+            (isbn, autor, editora, edicao, titulo, categoria, preco_venda, preco_compra, quantidade)
         )
         db.commit()
 

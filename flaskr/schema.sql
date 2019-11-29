@@ -67,7 +67,9 @@ CREATE TABLE livro(
 	edicao VARCHAR(50),
 	titulo VARCHAR (100),
 	categoria VARCHAR (80),
-	quantidade VARCHAR (100)
+	preco_venda real,
+	preco_compra real,
+	quantidade INTEGER (100)
 );
 
 CREATE TABLE pedido(
