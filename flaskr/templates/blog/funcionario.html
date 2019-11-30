@@ -249,8 +249,7 @@
                       </li>
                       <li><a href="{{ url_for ('blog.lista_livro') }}">Livros</a>
                       </li>
-                      <li><a href=""></a>Representantes</a>
-                      </li>
+                      
                       <li><a href="{{ url_for ('blog.lista_pedido') }}">Pedido</a>
                       </li>
                       <li><a href="{{ url_for ('blog.lista_devolucao') }}">Devoluções</a>
@@ -267,14 +266,13 @@
                     </li>
                     <li><a href="">Remover Livros</a>
                     </li>
-                    <!-- <li><a href="">Cadastrar Representante</a> -->
+                    
+                    <li><a href="">Cadastrar Pedido</a>
+                    </li>
+                    <li><a href="">Devoluções</a>
+                    </li>
+                  </ul>
                 </li>
-                <li><a href="">Cadastrar Pedido</a>
-                </li>
-                <li><a href="">Devoluções</a>
-                </li>
-              </ul>
-              </li>
               </ul>
             </nav>
           </div>
@@ -312,8 +310,7 @@
                 </li>
                 <li><a href="{{ url_for ('blog.lista_livro') }}">Livros</a>
                 </li>
-                <li><a href="{{ url_for ('blog.lista_representante') }}">Representantes</a>
-                </li>
+                
                 <li><a href="{{ url_for ('blog.lista_pedido') }}">Pedido</a>
                 </li>
                 <li><a href="{{ url_for ('blog.lista_devolucao') }}">Devoluções</a>
@@ -330,10 +327,6 @@
                 </li>
                 <li><a href="{{ url_for ('blog.cadastrar_livro') }}">Cadastrar Livro</a>
                 </li>
-                <li><a href="">Remover Livros</a>
-                </li>
-                 <li><a href="{{ url_for ('blog.cadastrar_representante') }}">Cadastrar Representante</a> 
-                </li>
                 <li><a href="{{ url_for ('blog.cadastrar_pedido') }}">Cadastrar Pedido</a>
                 </li>
                 <li><a href="{{ url_for ('blog.cadastrar_devolucao') }}">Devoluções</a>
@@ -346,8 +339,241 @@
     </div>
   </div>
 </div>
-    <!-- Main Menu area End-->
+<!-- Adicionando JQuery -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+crossorigin="anonymous"></script>
+
+<!-- Adicionando Javascript -->
+<script type="text/javascript" >
+
+$(document).ready(function() {
+
+ function limpa_formulário_cep() {
+     // Limpa valores do formulário de cep.
+     $("#rua").val("");
+     $("#bairro").val("");
+     $("#cidade").val("");
+     $("#uf").val("");
+     $("#ibge").val("");
+ }
+ 
+ //Quando o campo cep perde o foco.
+ $("#cep").blur(function() {
+
+     //Nova variável "cep" somente com dígitos.
+     var cep = $(this).val().replace(/\D/g, '');
+
+     //Verifica se campo cep possui valor informado.
+     if (cep != "") {
+
+         //Expressão regular para validar o CEP.
+         var validacep = /^[0-9]{8}$/;
+
+         //Valida o formato do CEP.
+         if(validacep.test(cep)) {
+
+             //Preenche os campos com "..." enquanto consulta webservice.
+             $("#rua").val("...");
+             $("#bairro").val("...");
+             $("#cidade").val("...");
+             $("#uf").val("...");
+             $("#ibge").val("...");
+
+             //Consulta o webservice viacep.com.br/
+             $.getJSON("https://viacep.com.br/ws/"+ cep +"/json/?callback=?", function(dados) {
+
+                 if (!("erro" in dados)) {
+                     //Atualiza os campos com os valores da consulta.
+                     $("#rua").val(dados.logradouro);
+                     $("#bairro").val(dados.bairro);
+                     $("#cidade").val(dados.localidade);
+                     $("#uf").val(dados.uf);
+                     $("#ibge").val(dados.ibge);
+                 } //end if.
+                 else {
+                     //CEP pesquisado não foi encontrado.
+                     limpa_formulário_cep();
+                     alert("CEP não encontrado.");
+                 }
+             });
+         } //end if.
+         else {
+             //cep é inválido.
+             limpa_formulário_cep();
+             alert("Formato de CEP inválido.");
+         }
+     } //end if.
+     else {
+         //cep sem valor, limpa formulário.
+         limpa_formulário_cep();
+     }
+ });
+});
+
+</script>
+
 <body>
+<div class="breadcomb-area">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="breadcomb-list">
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+              <div class="breadcomb-wp">
+                <div class="breadcomb-icon">
+                  <i class="notika-icon notika-form"></i>
+                </div>
+                <div class="breadcomb-ctn">
+                  <h2>Cadastrar Funcionario</h2>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-3">
+              <div class="breadcomb-report">
+                <button data-toggle="tooltip" data-placement="left" title="Download Report" class="btn"><i
+                    class="notika-icon notika-sent"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ <!-- Breadcomb area End-->
+ <!-- Form Element area Start-->
+<div class="form-element-area">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <form action="{{ url_for ('blog.create_funcionario') }}" method="POST">
+          <div class="form-element-list">
+            <div class="row">
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <div class="form-group ic-cmp-int">
+                  <div class="form-ic-cmp">
+                    <i class="notika-icon notika-support"></i>
+                  </div>
+                  <div class="nk-int-st">
+                    <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome">
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <div class="form-group ic-cmp-int">
+                  <div class="form-ic-cmp">
+                    <i class="notika-icon notika-mail"></i>
+                  </div>
+                  <div class="nk-int-st">
+                    <input type="text" class="form-control" name="email" id="email" placeholder="Email">
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <div class="form-group ic-cmp-int">
+                  <div class="form-ic-cmp">
+                    <i class="notika-icon notika-phone"></i>
+                  </div>
+                  <div class="nk-int-st">
+                    <input type="text" class="form-control" data-mask="(999) 999-9999" name="celular" id="celular" placeholder="Celular">
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="row">
+              <div class="col-lg-4 col-md-4 col-sm- col-xs-12">
+                <div class="form-group ic-cmp-int">
+                  <div class="form-ic-cmp">
+                    <i class="notika-icon notika-phone"></i>
+                  </div>
+                  <div class="nk-int-st">
+                    <input type="text" class="form-control" data-mask="(999) 999-9999" name="fone" id="telefone" placeholder="Telefone">
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                <div class="form-group ic-cmp-int">
+                  <div class="form-ic-cmp">
+                    <i class="notika-icon notika-next"></i>
+                  </div>
+                  <div class="nk-int-st">
+                    <input type="text" class="form-control" name="cep" id="cep" placeholder="CEP">
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <div class="form-group ic-cmp-int form-elet-mg res-mg-fcs">
+                  <div class="form-ic-cmp">
+                    <i class="notika-icon notika-house"></i>
+                  </div>
+                  <div class="nk-int-st">
+                    <input type="text" class="form-control" name="rua" id="rua" placeholder="Rua">
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12">
+                <div class="form-group ic-cmp-int form-elet-mg">
+                  <div class="form-ic-cmp">
+                    <i class="notika-icon notika-house"></i>
+                  </div>
+                  <div class="nk-int-st">
+                    <input type="text" class="form-control" name="numero" id="numero" placeholder="Nº">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <div class="form-group ic-cmp-int form-elet-mg res-mg-fcs">
+                  <div class="form-ic-cmp">
+                    <i class="notika-icon notika-house"></i>
+                  </div>
+                  <div class="nk-int-st">
+                    <input type="text" class="form-control" name="bairro" id="bairro" placeholder="Bairro">
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <div class="form-group ic-cmp-int">
+                  <div class="form-ic-cmp">
+                    <i class="notika-icon notika-house"></i>
+                  </div>
+                  <div class="nk-int-st">
+                    <input type="text" class="form-control" name="cidade" id="cidade" placeholder="Cidade">
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12">
+                <div class="form-group ic-cmp-int form-elet-mg">
+                  <div class="form-ic-cmp">
+                    <i class="notika-icon notika-house"></i>
+                  </div>
+                  <div class="nk-int-st">
+                    <input type="text" class="form-control" name="uf" id="uf" placeholder="UF">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="footer-copyright-area">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="footer-copy-right">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- End Footer area-->
 <!-- jquery

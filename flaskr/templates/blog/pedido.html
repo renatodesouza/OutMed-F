@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>StokBook - Início</title>
+    <title>StokBook - Pedido</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- favicon
@@ -500,8 +500,6 @@
                                 </li>
                                 <li><a href="{{ url_for ('blog.lista_livro') }}">Livros</a>
                                 </li>
-                                <li><a href="{{ url_for ('blog.lista_representante') }}">Representantes</a>
-                                </li>
                                 <li><a href="{{ url_for ('blog.lista_pedido') }}">Pedido</a>
                                 </li>
                                 <li><a href="{{ url_for ('blog.lista_devolucao') }}">Devoluções</a>
@@ -518,10 +516,6 @@
                                 </li>
                                 <li><a href="{{ url_for ('blog.cadastrar_livro') }}">Cadastrar Livro</a>
                                 </li>
-                                <li><a href="">Remover Livros</a>
-                                </li>
-                                <li><a href="{{ url_for ('blog.cadastrar_representante') }}">Cadastrar Representante</a>
-                                </li>
                                 <li><a href="{{ url_for ('blog.cadastrar_pedido') }}">Cadastrar Pedido</a>
                                 </li>
                                 <li><a href="{{ url_for ('blog.cadastrar_devolucao') }}">Devoluções</a>
@@ -536,40 +530,39 @@
   <!-- Main Menu area End-->
 <body>
 
-    <div class="breadcomb-area">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-              <div class="breadcomb-list">
-                <div class="row">
-                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <div class="breadcomb-wp">
-                      <div class="breadcomb-icon">
-                        <i class="notika-icon notika-form"></i>
-                      </div>
-                      <div class="breadcomb-ctn">
-                        <h2>Cadastrar Pedido</h2>
-                      </div>
+<div class="breadcomb-area">
+    <div class="container">
+        <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="breadcomb-list">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="breadcomb-wp">
+                    <div class="breadcomb-icon">
+                    <i class="notika-icon notika-form"></i>
                     </div>
-                  </div>
-                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-3">
-                    <div class="breadcomb-report">
-                      <button data-toggle="tooltip" data-placement="left" title="Download Report" class="btn"><i
-                          class="notika-icon notika-sent"></i></button>
+                    <div class="breadcomb-ctn">
+                    <h2>Cadastrar Pedido</h2>
                     </div>
-                  </div>
                 </div>
-              </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-3">
+                <div class="breadcomb-report">
+                    <button data-toggle="tooltip" data-placement="left" title="Download Report" class="btn"><i
+                        class="notika-icon notika-sent"></i></button>
+                </div>
+                </div>
             </div>
-          </div>
+            </div>
         </div>
-      </div>
-
+        </div>
+    </div>
+    </div>
 <div class="form-element-area">
   <div class="container">
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-      <form action="{{ url_for ('blog.create_livro') }}" method="POST">
+      <form action="{{ url_for ('blog.create_pedido') }}" method="POST">
         <div class="form-element-list">
           <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
@@ -578,7 +571,7 @@
                   <i class="notika-icon notika-support"></i>
                 </div>
                 <div class="nk-int-st">
-                  <input type="text" class="form-control" placeholder="ISBN">
+                  <input type="text" class="form-control" id="isbn" name="isbn" placeholder="ISBN">
                 </div>
               </div>
             </div>
@@ -588,7 +581,7 @@
                   <i class="notika-icon notika-support"></i>
                 </div>
                 <div class="nk-int-st">
-                  <input type="text" class="form-control" placeholder="Cliente">
+                  <input type="text" class="form-control" id="id_cliente" name="id_cliente" placeholder="Cliente">
                 </div>
               </div>
             </div>
@@ -598,7 +591,7 @@
                   <i class="notika-icon notika-mail"></i>
                 </div>
                 <div class="nk-int-st">
-                  <input type="text" class="form-control" placeholder="Funcionario">
+                  <input type="text" class="form-control" id="id_funcionario" name="id_funcionario" placeholder="Funcionario">
                 </div>
               </div>
             </div>
@@ -610,25 +603,24 @@
                   <i class="notika-icon notika-phone"></i>
                 </div>
                 <div class="nk-int-st">
-                  <input type="text" class="form-control" placeholder="Data">
+                  <input type="text" class="form-control" id="data_pedido" name="data_pedido" placeholder="Data">
                 </div>
               </div>
             </div>
-          
             <div class="col-lg-4 col-md-4 col-sm- col-xs-12">
               <div class="form-group ic-cmp-int">
                 <div class="form-ic-cmp">
                   <i class="notika-icon notika-phone"></i>
                 </div>
                 <div class="nk-int-st">
-                  <input type="text" class="form-control"  placeholder="Valor">
+                  <input type="text" class="form-control" id="valor" name="valor" placeholder="Valor">
                 </div>
               </div>
             </div>
           </div>
-          
+          <button type="submit" class="btn btn-default">Submit</button> 
         </div>
-        </div>
+        
       </form>
       </div>
     </div>

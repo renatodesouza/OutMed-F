@@ -64,12 +64,12 @@ CREATE TABLE livro(
 	isbn INTEGER PRIMARY KEY,
 	autor VARCHAR(80),
 	editora VARCHAR(80),
-	edicao VARCHAR(50),
+	edicao INTEGER,
 	titulo VARCHAR (100),
 	categoria VARCHAR (80),
-	preco_venda real,
-	preco_compra real,
-	quantidade INTEGER (100)
+	preco_venda INTEGER,
+	preco_compra INTEGER,
+	quantidade INTEGER
 );
 
 CREATE TABLE pedido(
