@@ -8,8 +8,11 @@ from flaskr.db import get_db
 
 bp = Blueprint('blog', __name__)
 
-@bp.route('/')
+@bp.route('/testedeploy')
+def testedeploy():
+    return "hola"
 
+@bp.route('/')
 def index():
     return render_template('blog/index.html')
 
