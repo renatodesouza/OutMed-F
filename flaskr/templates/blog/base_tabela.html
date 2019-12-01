@@ -240,7 +240,6 @@
                             <ul class="mobile-menu-nav">
                                 <li><a data-toggle="collapse" data-target="#Charts" href="{{ url_for ('blog.index') }}">Home</a>
                                 </li>
-
                                 <li><a data-toggle="collapse" data-target="#demodepart" href="#">Tabelas</a>
                                     <ul id="demodepart" class="collapse dropdown-header-top">
                                         <li><a href="{{ url_for ('blog.lista_cliente') }}">Clientes</a>
@@ -267,14 +266,12 @@
                                         </li>
                                         <li><a href="">Remover Livros</a>
                                         </li>
-                                        <!-- <li><a href="">Cadastrar Representante</a> -->
+                                        <li><a href="">Cadastrar Pedido</a>
+                                        </li>
+                                        <li><a href="">Devoluções</a>
+                                        </li>
+                                    </ul>
                                 </li>
-                                <li><a href="">Cadastrar Pedido</a>
-                                </li>
-                                <li><a href="">Devoluções</a>
-                                </li>
-                            </ul>
-                            </li>
                             </ul>
                         </nav>
                     </div>
@@ -304,20 +301,18 @@
                         </div>
                         <div id="Tables" class="tab-pane notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
-                                    <li><a href="{{ url_for ('blog.lista_cliente') }}">Clientes</a>
-                                    </li>
-                                    <li><a href="{{ url_for ('blog.lista_fornecedor') }}">Fornecedores</a>
-                                    </li>
-                                     <li><a href="{{ url_for ('blog.lista_funcionario') }}">Funcionário</a> 
-                                    </li>
-                                    <li><a href="{{ url_for ('blog.lista_livro') }}">Livros</a>
-                                    </li>
-                                    <li><a href=""></a>Representantes</a>
-                                    </li>
-                                    <li><a href="{{ url_for ('blog.lista_pedido') }}">Pedido</a>
-                                    </li>
-                                    <li><a href="{{ url_for ('blog.lista_devolucao') }}">Devoluções</a>
-                                    </li>
+                                <li><a href="{{ url_for ('blog.lista_cliente') }}">Clientes</a>
+                                </li>
+                                <li><a href="{{ url_for ('blog.lista_fornecedor') }}">Fornecedores</a>
+                                </li>
+                                    <li><a href="{{ url_for ('blog.lista_funcionario') }}">Funcionário</a> 
+                                </li>
+                                <li><a href="{{ url_for ('blog.lista_livro') }}">Livros</a>
+                                </li>
+                                <li><a href="{{ url_for ('blog.lista_pedido') }}">Pedido</a>
+                                </li>
+                                <li><a href="{{ url_for ('blog.lista_devolucao') }}">Devoluções</a>
+                                </li>
                             </ul>
                         </div>
                         <div id="Forms" class="tab-pane notika-tab-menu-bg animated flipInX">
@@ -329,10 +324,6 @@
                                 <li><a href="{{ url_for ('blog.cadastrar_funcionario') }}">Cadastrar Funcionário</a> 
                                 </li>
                                 <li><a href="{{ url_for ('blog.cadastrar_livro') }}">Cadastrar Livro</a>
-                                </li>
-                                <li><a href="">Remover Livros</a>
-                                </li>
-                                <li><a href="">Cadastrar Representante</a> 
                                 </li>
                                 <li><a href="{{ url_for ('blog.cadastrar_pedido') }}">Cadastrar Pedido</a>
                                 </li>

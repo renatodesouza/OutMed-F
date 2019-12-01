@@ -23,12 +23,12 @@
             </tr>
         </thead>
         <tbody>
-            {% for cliente in cliente %}
+            <p>esses {{clientes}}</p>
             <tr>
-                <td>{{ cliente.id }}</td>
-                <td>{{ cliente.first_name }}</td>
+                <td>{{ clientes.nome }}</td>
+                <td>{{ clientes.sobrenome }}</td>
             </tr>
-            {% endfor %}
+            
         </tbody>
         <tfoot>
              <th>Name</th>

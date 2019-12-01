@@ -322,8 +322,7 @@ $(document).ready(function() {
                       </li>
                       <li><a href="{{ url_for ('blog.lista_livro') }}">Livros</a>
                       </li>
-                      <li><a href=""></a>Representantes</a>
-                      </li>
+                      
                       <li><a href="{{ url_for ('blog.lista_pedido') }}">Pedido</a>
                       </li>
                       <li><a href="{{ url_for ('blog.lista_devolucao') }}">Devoluções</a>
@@ -340,14 +339,13 @@ $(document).ready(function() {
                     </li>
                     <li><a href="">Remover Livros</a>
                     </li>
-                    <!-- <li><a href="">Cadastrar Representante</a> -->
+                    
+                    <li><a href="">Cadastrar Pedido</a>
+                    </li>
+                    <li><a href="">Devoluções</a>
+                    </li>
+                  </ul>
                 </li>
-                <li><a href="">Cadastrar Pedido</a>
-                </li>
-                <li><a href="">Devoluções</a>
-                </li>
-              </ul>
-              </li>
               </ul>
             </nav>
           </div>
@@ -385,8 +383,6 @@ $(document).ready(function() {
                   </li>
                   <li><a href="{{ url_for ('blog.lista_livro') }}">Livros</a>
                   </li>
-                  <li><a href="{{ url_for ('blog.lista_representante') }}">Representantes</a>
-                  </li>
                   <li><a href="{{ url_for ('blog.lista_pedido') }}">Pedido</a>
                   </li>
                   <li><a href="{{ url_for ('blog.lista_devolucao') }}">Devoluções</a>
@@ -403,10 +399,7 @@ $(document).ready(function() {
                   </li>
                   <li><a href="{{ url_for ('blog.cadastrar_livro') }}">Cadastrar Livro</a>
                   </li>
-                  <li><a href="">Remover Livros</a>
-                  </li>
-                  <li><a href="{{ url_for ('blog.cadastrar_representante') }}">Cadastrar Representante</a> 
-                  </li>
+                  
                   <li><a href="{{ url_for ('blog.cadastrar_pedido') }}">Cadastrar Pedido</a>
                   </li>
                   <li><a href="{{ url_for ('blog.cadastrar_devolucao') }}">Devoluções</a>
@@ -495,7 +488,7 @@ $(document).ready(function() {
                     <i class="notika-icon notika-phone"></i>
                   </div>
                   <div class="nk-int-st">
-                    <input type="text" class="form-control" name="fone1" id="fone1" placeholder="Tel Comercial">
+                    <input type="text" class="form-control" data-mask="(999) 999-9999" name="fone1" id="fone1" placeholder="Tel Comercial">
                   </div>
                 </div>
               </div>
@@ -505,7 +498,7 @@ $(document).ready(function() {
                     <i class="notika-icon notika-phone"></i>
                   </div>
                   <div class="nk-int-st">
-                    <input type="text" class="form-control" name="fone2" id="fone2" placeholder="Celular">
+                    <input type="text" class="form-control" data-mask="(999) 999-9999" name="fone2" id="fone2" placeholder="Celular">
                   </div>
                 </div>
               </div>
@@ -519,16 +512,28 @@ $(document).ready(function() {
                   </div>
                 </div>
               </div>
+            </div>
+            <div class="row">
               <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                <div class="form-group ic-cmp-int form-elet-mg res-mg-fcs">
-                  <div class="form-ic-cmp">
-                    <i class="notika-icon notika-house"></i>
-                  </div>
-                  <div class="nk-int-st">
-                    <input type="text" class="form-control" name="rua" id="rua" placeholder="Rua">
+                  <div class="form-group ic-cmp-int form-elet-mg res-mg-fcs">
+                    <div class="form-ic-cmp">
+                      <i class="notika-icon notika-house"></i>
+                    </div>
+                    <div class="nk-int-st">
+                      <input type="text" class="form-control" name="rua" id="rua" placeholder="Rua">
+                    </div>
                   </div>
                 </div>
-              </div>
+                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12">
+                  <div class="form-group ic-cmp-int form-elet-mg">
+                    <div class="form-ic-cmp">
+                      <i class="notika-icon notika-house"></i>
+                    </div>
+                    <div class="nk-int-st">
+                      <input type="text" class="form-control"  name="numero" id="numero" placeholder="Nº">
+                    </div>
+                  </div>
+                </div>
               <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                 <div class="form-group ic-cmp-int form-elet-mg res-mg-fcs">
                   <div class="form-ic-cmp">
@@ -539,8 +544,6 @@ $(document).ready(function() {
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="row">
               <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                 <div class="form-group ic-cmp-int">
                   <div class="form-ic-cmp">
@@ -561,16 +564,7 @@ $(document).ready(function() {
                   </div>
                 </div>
               </div>
-              <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12">
-                <div class="form-group ic-cmp-int form-elet-mg">
-                  <div class="form-ic-cmp">
-                    <i class="notika-icon notika-house"></i>
-                  </div>
-                  <div class="nk-int-st">
-                    <input type="text" class="form-control"  name="numero" id="numero" placeholder="Nº">
-                  </div>
-                </div>
-              </div>
+              
             </div>
             <button type="submit" class="btn btn-default">Submit</button>
           </form>

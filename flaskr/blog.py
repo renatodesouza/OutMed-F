@@ -11,12 +11,6 @@ bp = Blueprint('blog', __name__)
 @bp.route('/')
 
 def index():
-    # db = get_db()
-    # posts = db.execute(
-    #     'SELECT p.id, title, body, created, author_id, username'
-    #     ' FROM post p JOIN user u ON p.author_id = u.id'
-    #     ' ORDER BY created DESC'
-    # ).fetchall()
     return render_template('blog/index.html')
 
 #--------------------TEMPLATE DE TABELA BASE-------------------------
@@ -32,9 +26,8 @@ def cadastrar_cliente():
 
 @bp.route('/lista_cliente', methods=('GET', 'POST'))
 def lista_cliente():
-    #cliente = cliente.query.all()
     return render_template('blog/lista_cliente.html')
-
+    
 #---------------------FORNECEDOR-----------------------------
 @bp.route('/cadastrar_fornecedor', methods=('GET', 'POST'))
 def cadastrar_fornecedor():
@@ -92,10 +85,8 @@ def cadastrar_livro():
 
 @bp.route('/lista_livro', methods=('GET', 'POST'))
 def lista_livro():
-    #livro = livro.query.all()
+    
     return render_template('blog/lista_livros.html')
-
-
 
 #-----------------CRIA CLIENTE----------------------------
 @bp.route('/create_cliente', methods=('GET', 'POST'))
@@ -106,7 +97,7 @@ def create_cliente():
         sobrenome = request.form['sobrenome']
         email = request.form['email']
         celular = request.form['celular']
-        telefone = request.form['telefone']
+        fone = request.form['fone']
         cep = request.form['cep']
         rua = request.form['rua']
         bairro = request.form['bairro']
@@ -118,7 +109,7 @@ def create_cliente():
         db.execute(
             'INSERT INTO cliente (nome, sobrenome, email, celular, fone, cep, rua, bairro, cidade, uf, numero)'
             ' VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
-            (nome, sobrenome, email, celular, telefone, cep, rua, bairro, cidade, uf, numero)
+            (nome, sobrenome, email, celular, fone, cep, rua, bairro, cidade, uf, numero)
         )
         db.commit()
 
@@ -126,6 +117,7 @@ def create_cliente():
 
     return render_template('blog/cliente.html')
 
+#-----------------CRIA FUNCIONARIO----------------------------
 @bp.route('/create_funcionario', methods=('GET', 'POST'))
 def create_funcionario():
     if request.method == 'POST':   
@@ -153,6 +145,7 @@ def create_funcionario():
 
     return render_template('blog/funcionario.html')
 
+#-----------------CRIA FORNECEDOR----------------------------
 @bp.route('/create_fornecedor', methods=('GET', 'POST'))
 def create_fornecedor():
     if request.method == 'POST':   
@@ -181,7 +174,7 @@ def create_fornecedor():
 
     return render_template('blog/fornecedor.html')
 
-
+#-----------------CRIA LIVRO----------------------------
 @bp.route('/create_livro', methods=('GET', 'POST'))
 def create_livro():
     if request.method == 'POST':   
@@ -206,3 +199,46 @@ def create_livro():
         return redirect(url_for('blog.index'))
 
     return render_template('blog/livros.html')
+
+#-----------------CRIA PEDIDO----------------------------
+@bp.route('/create_pedido', methods=('GET', 'POST'))
+def create_pedido():
+    if request.method == 'POST':   
+        #id = request.form['id']
+        isbn = request.form['isbn']
+        id_cliente = request.form['id_cliente']
+        id_funcionario = request.form['id_funcionario']
+        data_pedido = request.form['data_pedido']
+        valor = request.form['valor']
+
+        db = get_db()
+        db.execute(
+            'INSERT INTO pedido (isbn, id_cliente, id_funcionario, data_pedido, valor)'
+            ' VALUES (?, ?, ?, ?, ?)',
+            (isbn, id_cliente, id_funcionario, data_pedido, valor)
+        )
+        db.commit()
+
+        return redirect(url_for('blog.index'))
+
+    return render_template('blog/pedido.html')
+
+#-----------------CRIA DEVOLUCAO----------------------------
+@bp.route('/create_devolucao', methods=('GET', 'POST'))
+def create_devolucao():
+    if request.method == 'POST':   
+        id_pedido = request.form['id_pedido']
+        id_cliente = request.form['id_cliente']
+        id_funcionario = request.form['id_funcionario']
+
+        db = get_db()
+        db.execute(
+            'INSERT INTO devolucao (id_pedido, id_cliente, id_funcionario)'
+            ' VALUES (?, ?, ?)',
+            (id_pedido, id_cliente, id_funcionario)
+        )
+        db.commit()
+
+        return redirect(url_for('blog.index'))
+
+    return render_template('blog/devolucao.html')
