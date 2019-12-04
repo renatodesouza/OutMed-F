@@ -3,3 +3,5 @@ venv
 *.pyc
 py/
 __pycache__
+flaskr.sqlite
+queries.sql
