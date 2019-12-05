@@ -241,7 +241,7 @@
 
                 <li><a data-toggle="collapse" data-target="#demodepart" href="#">Tabelas</a>
                   <ul id="demodepart" class="collapse dropdown-header-top">
-                      <li><a href="{{ url_for ('blog.lista_cliente') }}">Clientes</a>
+                      <li><a href="{{ url_for ('clientes.lista_cliente') }}">Clientes</a>
                       </li>
                       <li><a href="{{ url_for ('blog.lista_fornecedor') }}">Fornecedores</a>
                       </li>
@@ -259,7 +259,7 @@
                 </li>
                 <li><a data-toggle="collapse" data-target="#demo" href="#">Cadastrar</a>
                   <ul id="demo" class="collapse dropdown-header-top">
-                    <li><a href="{{ url_for ('blog.cadastrar_cliente') }}">Cadastrar Cliente</a>
+                    <li><a href="{{ url_for ('clientes.cadastrar_cliente') }}">Cadastrar Cliente</a>
                     </li>
                     <li><a href="">Cadastrar Fornecedor</a>
                     </li>
@@ -320,7 +320,7 @@
             </div>
             <div id="Forms" class="tab-pane notika-tab-menu-bg animated flipInX">
               <ul class="notika-main-menu-dropdown">
-                <li><a href="{{ url_for ('blog.cadastrar_cliente') }}">Cadastrar Cliente</a>
+                <li><a href="{{ url_for ('clientes.cadastrar_cliente') }}">Cadastrar Cliente</a>
                 </li>
                 <li><a href="">Cadastrar Fornecedor</a>
                 </li>

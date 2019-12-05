@@ -3,23 +3,13 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Tabelas</title>
+    <title>{% block title %} StokBook {% endblock %}</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- favicon
-		============================================ -->
         <link rel="shortcut icon" type="image/x-icon" href="{{ url_for ('static', filename='img/favicon.ico') }}">
-        <!-- Google Fonts
-            ============================================ -->
-        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
-        <!-- Bootstrap CSS
-            ============================================ -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">  
         <link rel="stylesheet" href="{{ url_for ('static', filename='css/bootstrap.min.css')  }}">
-        <!-- Bootstrap CSS
-            ============================================ -->
         <link rel="stylesheet" href="{{ url_for ('static', filename='css/font-awesome.min.css')  }}">
-        <!-- owl.carousel CSS
-            ============================================ -->
         <link rel="stylesheet" href="{{ url_for ('static', filename='css/owl.carousel.css') }}">
         <link rel="stylesheet" href="{{ url_for ('static', filename ='css/owl.theme.css') }}">
         <link rel="stylesheet" href="{{ url_for ('static', filename='css/owl.transitions.css') }}">
@@ -38,11 +28,7 @@
         <!-- jvectormap CSS
             ============================================ -->
         <link rel="stylesheet" href="{{ url_for ('static', filename='css/jvectormap/jquery-jvectormap-2.0.3.css')  }}">
-        <!-- notika icon CSS
-            ============================================ -->
         <link rel="stylesheet" href="{{ url_for ('static', filename='css/notika-custom-icon.css')  }}">
-        <!-- wave CSS
-            ============================================ -->
         <link rel="stylesheet" href="{{ url_for ('static', filename='css/wave/waves.min.css')  }}">
         <!-- main CSS
             ============================================ -->
@@ -242,7 +228,7 @@
                                 </li>
                                 <li><a data-toggle="collapse" data-target="#demodepart" href="#">Tabelas</a>
                                     <ul id="demodepart" class="collapse dropdown-header-top">
-                                        <li><a href="{{ url_for ('blog.lista_cliente') }}">Clientes</a>
+                                        <li><a href="{{ url_for ('clientes.lista_cliente') }}">Clientes</a>
                                         </li>
                                         <li><a href="">Fornecedores</a>
                                         </li>
@@ -258,7 +244,7 @@
                                 </li>
                                 <li><a data-toggle="collapse" data-target="#demo" href="#">Cadastrar</a>
                                     <ul id="demo" class="collapse dropdown-header-top">
-                                        <li><a href="{{ url_for ('blog.cadastrar_cliente') }}">Cadastrar Cliente</a>
+                                        <li><a href="{{ url_for ('clientes.cadastrar_cliente') }}">Cadastrar Cliente</a>
                                         </li>
                                         <li><a href="">Cadastrar Fornecedor</a>
                                         </li>
@@ -301,7 +287,7 @@
                         </div>
                         <div id="Tables" class="tab-pane notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
-                                <li><a href="{{ url_for ('blog.lista_cliente') }}">Clientes</a>
+                                <li><a href="{{ url_for ('clientes.lista_cliente') }}">Clientes</a>
                                 </li>
                                 <li><a href="{{ url_for ('blog.lista_fornecedor') }}">Fornecedores</a>
                                 </li>
@@ -317,7 +303,7 @@
                         </div>
                         <div id="Forms" class="tab-pane notika-tab-menu-bg animated flipInX">
                             <ul class="notika-main-menu-dropdown">
-                                <li><a href="{{ url_for ('blog.cadastrar_cliente') }}">Cadastrar Cliente</a>
+                                <li><a href="{{ url_for ('clientes.cadastrar_cliente') }}">Cadastrar Cliente</a>
                                 </li>
                                 <li><a href="{{ url_for ('blog.cadastrar_fornecedor') }}">Cadastrar Fornecedor</a>
                                 </li>
