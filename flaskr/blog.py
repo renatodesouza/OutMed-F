@@ -13,19 +13,6 @@ def index():
     return render_template('blog/index.html')
 
 
-
-
-#---------------------FUNCIONARIO-----------------------------
-@bp.route('/cadastrar_funcionario', methods=('GET', 'POST'))
-def cadastrar_funcionario():
-    return render_template('blog/funcionario.html')
-
-@bp.route('/lista_funcionario', methods=('GET', 'POST'))
-def lista_funcionario():
-    #devolucao = devolucao.query.all()
-    return render_template('blog/lista_funcionario.html')
-
-#---------------------REPRESENTANTE-----------------------------
 @bp.route('/cadastrar_representante', methods=('GET', 'POST'))
 def cadastrar_representante():
     return render_template('blog/contato.html')
@@ -46,33 +33,7 @@ def lista_devolucao():
     #devolucao = devolucao.query.all()
     return render_template('blog/lista_devolucao.html')
     
-#-----------------CRIA FUNCIONARIO----------------------------
-@bp.route('/create_funcionario', methods=('GET', 'POST'))
-def create_funcionario():
-    if request.method == 'POST':   
-        id_user = request.form['id_user']
-        nome = request.form['nome']
-        email = request.form['email']
-        celular = request.form['celular']
-        fone = request.form['fone']
-        cep = request.form['cep']
-        rua = request.form['rua']
-        bairro = request.form['bairro']
-        cidade = request.form['cidade']
-        uf = request.form['uf']
-        numero = request.form['numero']
-
-        db = get_db()
-        db.execute(
-            'INSERT INTO funcionario (id_user, nome, email, celular, fone, cep, rua, bairro, cidade, uf, numero)'
-            ' VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
-            (id_user, nome, email, celular, fone, cep, rua, bairro, cidade, uf, numero)
-        )
-        db.commit()
-
-        return redirect(url_for('blog.index'))
-
-    return render_template('blog/funcionario.html')
+    
 
 
 #-----------------CRIA DEVOLUCAO----------------------------

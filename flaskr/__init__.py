@@ -53,5 +53,8 @@ def create_app(test_config=None):
 
     from . import pedido
     app.register_blueprint(pedido.pd)
+
+    from . import funcionario
+    app.register_blueprint(funcionario.fo)
     
     return app

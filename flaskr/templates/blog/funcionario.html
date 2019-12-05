@@ -245,7 +245,7 @@
                       </li>
                       <li><a href="{{ url_for ('fornecedor.lista_fornecedor') }}">Fornecedores</a>
                       </li>
-                       <li><a href="{{ url_for ('blog.lista_funcionario') }}">Funcionário</a> 
+                       <li><a href="{{ url_for ('funcionario.lista_funcionario') }}">Funcionário</a> 
                       </li>
                       <li><a href="{{ url_for ('livros.lista_livro') }}">Livros</a>
                       </li>
@@ -306,7 +306,7 @@
                 </li>
                 <li><a href="{{ url_for ('fornecedor.lista_fornecedor') }}">Fornecedores</a>
                 </li>
-                 <li><a href="{{ url_for ('blog.lista_funcionario') }}">Funcionário</a> 
+                 <li><a href="{{ url_for ('funcionario.lista_funcionario') }}">Funcionário</a> 
                 </li>
                 <li><a href="{{ url_for ('livros.lista_livro') }}">Livros</a>
                 </li>
@@ -323,7 +323,7 @@
                 </li>
                 <li><a href="{{ url_for ('fornecedor.criar_fornecedor') }}">Cadastrar Fornecedor</a>
                 </li>
-                <li><a href="{{ url_for ('blog.cadastrar_funcionario') }}">Cadastrar Funcionário</a> 
+                <li><a href="{{ url_for ('funcionario.cadastrar_funcionario') }}">Cadastrar Funcionário</a> 
                 </li>
                 <li><a href="{{ url_for ('livros.cadastrar_livro') }}">Cadastrar Livro</a>
                 </li>
@@ -448,7 +448,7 @@ $(document).ready(function() {
   <div class="container">
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <form action="{{ url_for ('blog.create_funcionario') }}" method="POST">
+        <form action="{{ url_for ('funcionario.cadastrar_funcionario') }}" method="POST">
           <div class="form-element-list">
             <div class="row">
               <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
