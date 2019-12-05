@@ -16,15 +16,15 @@ CREATE TABLE user (
 
 CREATE TABLE cliente(
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
-	nome VARCHAR (80),
-	sobrenome VARCHAR (130),
-	email VARCHAR (80),
-	celular INTEGER,
-	fone INTEGER,
-	cep INTEGER (10),
+	nome VARCHAR (30),
+	sobrenome VARCHAR (30),
+	email VARCHAR (256),
+	celular VARCHAR (11),
+	fone VARCHAR (11),
+	cep VARCHAR (8),
 	rua VARCHAR (80),
-	bairro VARCHAR (80),
-	cidade VARCHAR (80),
+	bairro VARCHAR (10),
+	cidade VARCHAR (40),
 	uf VARCHAR (2),
 	numero VARCHAR (10)
 );
@@ -34,9 +34,9 @@ CREATE TABLE funcionario(
 	id_user INTEGER,
 	nome VARCHAR (80),
 	email VARCHAR (80),
-	celular INTEGER,
-	fone INTEGER,
-	cep INTEGER (10),
+	celular VARCHAR (11),
+	fone VARCHAR (11),
+	cep VARCHAR (8),
 	rua VARCHAR (80),
 	bairro VARCHAR (80),
 	cidade VARCHAR (80),
@@ -48,11 +48,11 @@ CREATE TABLE funcionario(
 CREATE TABLE fornecedor(
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	nome VARCHAR (80),
-	cnpj INTEGER,
-	email VARCHAR (80),
-	fone1 INTEGER,
-	fone2 INTEGER,
-	cep INTEGER,
+	cnpj VARCHAR (13),
+	email VARCHAR (256),
+	fone1 VARCHAR (11),
+	fone2 VARCHAR (11),
+	cep VARCHAR (8),
 	rua VARCHAR (80),
 	bairro VARCHAR (80),
 	cidade VARCHAR (80),
@@ -61,20 +61,20 @@ CREATE TABLE fornecedor(
 );
 
 CREATE TABLE livro(
-	isbn INTEGER PRIMARY KEY,
+	isbn VARCHAR(13) PRIMARY KEY,
 	autor VARCHAR(80),
-	editora VARCHAR(80),
-	edicao INTEGER,
+	editora VARCHAR(40),
+	edicao TINYINT,
 	titulo VARCHAR (100),
-	categoria VARCHAR (80),
-	preco_venda INTEGER,
-	preco_compra INTEGER,
-	quantidade INTEGER
+	categoria VARCHAR (30),
+	preco_venda DECIMAL(10, 5),
+	preco_compra DECIMAL(10, 5),
+	quantidade SMALLINT
 );
 
 CREATE TABLE pedido(
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
-	isbn INTEGER,
+	isbn VARCHAR(13),
 	id_cliente INTEGER,
 	id_funcionario INTEGER,
 	data_pedido DATE,
