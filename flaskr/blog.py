@@ -35,15 +35,6 @@ def lista_representante():
     #devolucao = devolucao.query.all()
     return render_template('blog/listar_contato.html')
 
-#---------------------PEDIDO-----------------------------
-@bp.route('/cadastrar_pedido', methods=('GET', 'POST'))
-def cadastrar_pedido():
-    return render_template('blog/pedido.html')
-
-@bp.route('/lista_pedido', methods=('GET', 'POST'))
-def lista_pedido():
-    #devolucao = devolucao.query.all()
-    return render_template('blog/lista_pedido.html')
 
 #---------------------DEVOLUCAO-----------------------------
 @bp.route('/cadastrar_devolucao', methods=('GET', 'POST'))
@@ -83,29 +74,6 @@ def create_funcionario():
 
     return render_template('blog/funcionario.html')
 
-
-#-----------------CRIA PEDIDO----------------------------
-@bp.route('/create_pedido', methods=('GET', 'POST'))
-def create_pedido():
-    if request.method == 'POST':   
-        #id = request.form['id']
-        isbn = request.form['isbn']
-        id_cliente = request.form['id_cliente']
-        id_funcionario = request.form['id_funcionario']
-        data_pedido = request.form['data_pedido']
-        valor = request.form['valor']
-
-        db = get_db()
-        db.execute(
-            'INSERT INTO pedido (isbn, id_cliente, id_funcionario, data_pedido, valor)'
-            ' VALUES (?, ?, ?, ?, ?)',
-            (isbn, id_cliente, id_funcionario, data_pedido, valor)
-        )
-        db.commit()
-
-        return redirect(url_for('blog.index'))
-
-    return render_template('blog/pedido.html')
 
 #-----------------CRIA DEVOLUCAO----------------------------
 @bp.route('/create_devolucao', methods=('GET', 'POST'))

@@ -78,7 +78,7 @@ CREATE TABLE pedido(
 	id_cliente INTEGER,
 	id_funcionario INTEGER,
 	data_pedido DATE,
-	valor real,
+	valor decimal (10, 2),
 	FOREIGN key (isbn) REFERENCES livro(isbn),
 	FOREIGN key (id_cliente) REFERENCES cliente(id),
 	FOREIGN key (id_funcionario) REFERENCES funcionario(id)
@@ -98,7 +98,7 @@ CREATE TABLE contato_fornecedor(
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	id_fornecedor INTEGER,
 	nome VARCHAR (80),
-	email VARCHAR (80),
-	telefone INTEGER,
+	email VARCHAR (256),
+	telefone VARCHAR(11),
 	FOREIGN key (id_fornecedor) REFERENCES fornecedor(id)
 );

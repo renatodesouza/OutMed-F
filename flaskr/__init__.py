@@ -51,5 +51,7 @@ def create_app(test_config=None):
     from . import fornecedor
     app.register_blueprint(fornecedor.fr)
 
+    from . import pedido
+    app.register_blueprint(pedido.pd)
     
     return app

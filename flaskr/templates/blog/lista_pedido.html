@@ -1,5 +1,5 @@
 {% extends 'blog/base_tabela.html' %}
-
+{% block title %}Pedidos | StokBook {% endblock %}
 {% block content_tabela_pedido %}
 <div class="basic-tb-hd">
     {% block content_titulo_pedido %}
@@ -20,15 +20,15 @@
             </tr>
         </thead>
         <tbody>
-            {% for pedido in pedido %}
+            {% for pedido in pedidos %}
             <tr>
-                <td>{{ pedido.Titulo }}</td>
-                <td>{{ pedido.cod_funcionario }}</td>
-                <td>{{ pedido.cod_cliente }}</td>
-                <td>{{ pedido.Data }}</td>
-                <td>{{ pedido.Valor }}</td>
-                <td>{{ pedido.quantidade }}</td>
-                <td>{{ pedido.situação }}</td>
+                <td>{{ pedido[0] }}</td>
+                <td>{{ pedido[1] }}</td>
+                <td>{{ pedido[2] }}</td>
+                <td>{{ pedido[3] }}</td>
+                <td>{{ pedido[4] }}</td>
+                <td>{{ pedido[5] }}</td>
+                <td>{{ pedido[6] }}</td>
             </tr>
             {% endfor %}
         </tbody>

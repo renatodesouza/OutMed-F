@@ -500,7 +500,7 @@
                                 </li>
                                 <li><a href="{{ url_for ('livros.lista_livro') }}">Livros</a>
                                 </li>
-                                <li><a href="{{ url_for ('blog.lista_pedido') }}">Pedido</a>
+                                <li><a href="{{ url_for ('pedido.lista_pedido') }}">Pedido</a>
                                 </li>
                                 <li><a href="{{ url_for ('blog.lista_devolucao') }}">Devoluções</a>
                                 </li>
@@ -516,7 +516,7 @@
                                 </li>
                                 <li><a href="{{ url_for ('livros.cadastrar_livro') }}">Cadastrar Livro</a>
                                 </li>
-                                <li><a href="{{ url_for ('blog.cadastrar_pedido') }}">Cadastrar Pedido</a>
+                                <li><a href="{{ url_for ('pedido.cadastrar_pedido') }}">Cadastrar Pedido</a>
                                 </li>
                                 <li><a href="{{ url_for ('blog.cadastrar_devolucao') }}">Devoluções</a>
                                 </li>
@@ -562,7 +562,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-      <form action="{{ url_for ('blog.create_pedido') }}" method="POST">
+      <form action="{{ url_for ('pedido.cadastrar_pedido') }}" method="POST">
         <div class="form-element-list">
           <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
@@ -571,7 +571,7 @@
                   <i class="notika-icon notika-support"></i>
                 </div>
                 <div class="nk-int-st">
-                  <input type="text" class="form-control" id="isbn" name="isbn" placeholder="ISBN">
+                  <input type="text" class="form-control" maxlength="13" id="isbn" name="isbn" placeholder="ISBN">
                 </div>
               </div>
             </div>
