@@ -1,2 +1,7 @@
 venv
 .vscode/
+*.pyc
+py/
+__pycache__
+flaskr.sqlite
+queries.sql

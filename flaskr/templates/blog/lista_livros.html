@@ -22,18 +22,17 @@
             </tr>
         </thead>
         <tbody>
-                {% for livro in livros %}
-                <tr>
-                    <td>{{ livro.id }}</td>
-                    <td>{{ livro.ISBN }}</td>
-                    <td>{{ livro.editora }}</td>
-                    <td>{{ livro.edicao }}</td>
-                    <td>{{ livro.titulo }}</td>
-                    <td>{{ livro.autor }}</td>
-                    <td>{{ livro.genero }}</td>
-                    <td>{{ livro.preco_compra }}</td>
-                    <td>{{ livro.preco_venda }}</td>
-                    <td>{{ livro.quantidade }}</td>
+            {% for livro in data %}
+            <tr>
+                    <td>{{ livro[0] }}</td>
+                    <td>{{ livro[2] }}</td>
+                    <td>{{ livro[3] }}</td>
+                    <td>{{ livro[4] }}</td>
+                    <td>{{ livro[1] }}</td>
+                    <td>{{ livro[5] }}</td>
+                    <td>{{ livro[6] }}</td>
+                    <td>{{ livro[7] }}</td>
+                    <td>{{ livro[8] }}</td>
                 </tr>
                 {% endfor %}
         </tbody>

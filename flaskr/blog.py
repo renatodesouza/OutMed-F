@@ -2,14 +2,17 @@ from flask import (
     Blueprint, flash, g, redirect, render_template, request, url_for
 )
 from werkzeug.exceptions import abort
-
+import sqlite3
 from flaskr.auth import login_required
 from flaskr.db import get_db
 
 bp = Blueprint('blog', __name__)
 
-@bp.route('/')
+@bp.route('/testedeploy')
+def testedeploy():
+    return "hola"
 
+@bp.route('/')
 def index():
     return render_template('blog/index.html')
 
@@ -85,8 +88,13 @@ def cadastrar_livro():
 
 @bp.route('/lista_livro', methods=('GET', 'POST'))
 def lista_livro():
-    
-    return render_template('blog/lista_livros.html')
+    con = sqlite3.connect('instance/flaskr.sqlite')
+    cur = con.cursor()
+    cur.execute('SELECT * FROM livro;')
+    data = cur.fetchall()
+    cur.close()
+    con.close()
+    return render_template('blog/lista_livros.html', data=data)
 
 #-----------------CRIA CLIENTE----------------------------
 @bp.route('/create_cliente', methods=('GET', 'POST'))
