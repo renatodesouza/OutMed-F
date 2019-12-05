@@ -8,29 +8,12 @@ from flaskr.db import get_db
 
 bp = Blueprint('blog', __name__)
 
-@bp.route('/testedeploy')
-def testedeploy():
-    return "hola"
-
 @bp.route('/')
 def index():
     return render_template('blog/index.html')
 
-#--------------------TEMPLATE DE TABELA BASE-------------------------
-@bp.route('/tabela', methods=('GET', 'POST'))
-def tabela():
-    return render_template('blog/base_tabela.html')
 
-#---------------------CLIENTE-----------------------------
-@bp.route('/cadastrar_cliente', methods=('GET', 'POST'))
 
-def cadastrar_cliente():
-    return render_template('blog/cliente.html')
-
-@bp.route('/lista_cliente', methods=('GET', 'POST'))
-def lista_cliente():
-    return render_template('blog/lista_cliente.html')
-    
 #---------------------FORNECEDOR-----------------------------
 @bp.route('/cadastrar_fornecedor', methods=('GET', 'POST'))
 def cadastrar_fornecedor():
@@ -91,39 +74,10 @@ def lista_livro():
     con = sqlite3.connect('instance/flaskr.sqlite')
     cur = con.cursor()
     cur.execute('SELECT * FROM livro;')
-    data = cur.fetchall()
+    livros = cur.fetchall()
     cur.close()
     con.close()
-    return render_template('blog/lista_livros.html', data=data)
-
-#-----------------CRIA CLIENTE----------------------------
-@bp.route('/create_cliente', methods=('GET', 'POST'))
-def create_cliente():
-    if request.method == 'POST':   
-        #id = request.form['id']
-        nome = request.form['nome']
-        sobrenome = request.form['sobrenome']
-        email = request.form['email']
-        celular = request.form['celular']
-        fone = request.form['fone']
-        cep = request.form['cep']
-        rua = request.form['rua']
-        bairro = request.form['bairro']
-        cidade = request.form['cidade']
-        uf = request.form['uf']
-        numero = request.form['numero']
-
-        db = get_db()
-        db.execute(
-            'INSERT INTO cliente (nome, sobrenome, email, celular, fone, cep, rua, bairro, cidade, uf, numero)'
-            ' VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
-            (nome, sobrenome, email, celular, fone, cep, rua, bairro, cidade, uf, numero)
-        )
-        db.commit()
-
-        return redirect(url_for('blog.index'))
-
-    return render_template('blog/cliente.html')
+    return render_template('blog/lista_livros.html', livros=livros)
 
 #-----------------CRIA FUNCIONARIO----------------------------
 @bp.route('/create_funcionario', methods=('GET', 'POST'))
