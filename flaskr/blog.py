@@ -14,11 +14,6 @@ def index():
 
 
 
-#---------------------FORNECEDOR-----------------------------
-@bp.route('/cadastrar_fornecedor', methods=('GET', 'POST'))
-def cadastrar_fornecedor():
-    return render_template('blog/fornecedor.html')
-
 
 #---------------------FUNCIONARIO-----------------------------
 @bp.route('/cadastrar_funcionario', methods=('GET', 'POST'))
