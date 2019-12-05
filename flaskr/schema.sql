@@ -31,7 +31,6 @@ CREATE TABLE cliente(
 
 CREATE TABLE funcionario(
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
-	id_user INTEGER,
 	nome VARCHAR (80),
 	email VARCHAR (80),
 	celular VARCHAR (11),
@@ -41,8 +40,7 @@ CREATE TABLE funcionario(
 	bairro VARCHAR (80),
 	cidade VARCHAR (80),
 	uf VARCHAR (2),
-	numero VARCHAR (10),
-	FOREIGN KEY (id_user) REFERENCES user(id)
+	numero VARCHAR (10)
 );
 
 CREATE TABLE fornecedor(

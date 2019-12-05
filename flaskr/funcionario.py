@@ -20,7 +20,6 @@ def lista_funcionario():
 @fo.route('/cadastrar_funcionario', methods=('GET', 'POST'))
 def cadastrar_funcionario():
     if request.method == 'POST':   
-        id_user = request.form['id_user']
         nome = request.form['nome']
         email = request.form['email']
         celular = request.form['celular']
@@ -34,12 +33,12 @@ def cadastrar_funcionario():
 
         db = get_db()
         db.execute(
-            'INSERT INTO funcionario (id_user, nome, email, celular, fone, cep, rua, bairro, cidade, uf, numero)'
-            ' VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
-            (id_user, nome, email, celular, fone, cep, rua, bairro, cidade, uf, numero)
+            'INSERT INTO funcionario (nome, email, celular, fone, cep, rua, bairro, cidade, uf, numero)'
+            ' VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+            (nome, email, celular, fone, cep, rua, bairro, cidade, uf, numero)
         )
         db.commit()
 
         return redirect(url_for('funcionario.lista_funcionario'))
 
-    return render_template('blog/lista_funcionario.html')
+    return render_template('blog/funcionario.html')
