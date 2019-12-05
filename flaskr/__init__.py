@@ -45,4 +45,7 @@ def create_app(test_config=None):
     app.register_blueprint(clientes.cl)
     app.add_url_rule('/', endpoint='index')
 
+    from . import livros
+    app.register_blueprint(livros.lv)
+
     return app

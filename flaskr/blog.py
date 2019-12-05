@@ -64,21 +64,6 @@ def lista_devolucao():
     #devolucao = devolucao.query.all()
     return render_template('blog/lista_devolucao.html')
     
-#---------------------LIVROS-----------------------------
-@bp.route('/cadastrar_livro', methods=('GET', 'POST'))
-def cadastrar_livro():
-    return render_template('blog/livros.html')
-
-@bp.route('/lista_livro', methods=('GET', 'POST'))
-def lista_livro():
-    con = sqlite3.connect('instance/flaskr.sqlite')
-    cur = con.cursor()
-    cur.execute('SELECT * FROM livro;')
-    livros = cur.fetchall()
-    cur.close()
-    con.close()
-    return render_template('blog/lista_livros.html', livros=livros)
-
 #-----------------CRIA FUNCIONARIO----------------------------
 @bp.route('/create_funcionario', methods=('GET', 'POST'))
 def create_funcionario():
@@ -136,31 +121,6 @@ def create_fornecedor():
 
     return render_template('blog/fornecedor.html')
 
-#-----------------CRIA LIVRO----------------------------
-@bp.route('/create_livro', methods=('GET', 'POST'))
-def create_livro():
-    if request.method == 'POST':   
-        isbn = request.form['isbn']
-        autor = request.form['autor']
-        editora = request.form['editora']
-        edicao = request.form['edicao']
-        titulo = request.form['titulo']
-        categoria = request.form['categoria']
-        preco_venda = request.form['preco_venda']
-        preco_compra = request.form['preco_compra']
-        quantidade = request.form['quantidade']
-
-        db = get_db()
-        db.execute(
-            'INSERT INTO livro (isbn, autor, editora, edicao, titulo, categoria, preco_venda, preco_compra, quantidade)'
-            ' VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
-            (isbn, autor, editora, edicao, titulo, categoria, preco_venda, preco_compra, quantidade)
-        )
-        db.commit()
-
-        return redirect(url_for('blog.index'))
-
-    return render_template('blog/livros.html')
 
 #-----------------CRIA PEDIDO----------------------------
 @bp.route('/create_pedido', methods=('GET', 'POST'))
