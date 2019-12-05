@@ -48,4 +48,8 @@ def create_app(test_config=None):
     from . import livros
     app.register_blueprint(livros.lv)
 
+    from . import fornecedor
+    app.register_blueprint(fornecedor.fr)
+
+    
     return app

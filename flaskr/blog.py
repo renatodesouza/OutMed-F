@@ -19,10 +19,6 @@ def index():
 def cadastrar_fornecedor():
     return render_template('blog/fornecedor.html')
 
-@bp.route('/lista_fornecedor', methods=('GET', 'POST'))
-def lista_fornecedor():
-    #fornecedor = fornecedor.query.all()
-    return render_template('blog/lista_fornecedor.html')
 
 #---------------------FUNCIONARIO-----------------------------
 @bp.route('/cadastrar_funcionario', methods=('GET', 'POST'))
@@ -91,35 +87,6 @@ def create_funcionario():
         return redirect(url_for('blog.index'))
 
     return render_template('blog/funcionario.html')
-
-#-----------------CRIA FORNECEDOR----------------------------
-@bp.route('/create_fornecedor', methods=('GET', 'POST'))
-def create_fornecedor():
-    if request.method == 'POST':   
-        #id = request.form['id']
-        nome = request.form['nome']
-        cnpj = request.form['cnpj']
-        email = request.form['email']
-        fone1 = request.form['fone1']
-        fone2 = request.form['fone2']
-        cep = request.form['cep']
-        rua = request.form['rua']
-        bairro = request.form['bairro']
-        cidade = request.form['cidade']
-        uf = request.form['uf']
-        numero = request.form['numero']
-
-        db = get_db()
-        db.execute(
-            'INSERT INTO fornecedor (nome, cnpj, email, fone1, fone2, cep, rua, bairro, cidade, uf, numero)'
-            ' VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
-            (nome, cnpj, email, fone1, fone2, cep, rua, bairro, cidade, uf, numero)
-        )
-        db.commit()
-
-        return redirect(url_for('blog.index'))
-
-    return render_template('blog/fornecedor.html')
 
 
 #-----------------CRIA PEDIDO----------------------------

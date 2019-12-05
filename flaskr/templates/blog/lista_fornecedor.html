@@ -1,5 +1,5 @@
 {% extends 'blog/base_tabela.html' %}
-
+{% block title %} Fornecedores | StokBook {% endblock %}
 {% block content_tabela_fornecedor %}
 <div class="basic-tb-hd">
     {% block content_titulo_fornecedor %}
@@ -10,40 +10,42 @@
     <table id="data-table-basic" class="table table-striped">
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Email</th>
+                <th>Nome</th>
                 <th>CNPJ</th>
-                <th>Cidade</th>
-                <th>Bairro</th>
-                <th>Rua</th>
-                <th>Numero</th>
+                <th>E-mail</th>
+                <th>Telefone 1</th>
+                <th>Telefone 2</th>
                 <th>CEP</th>
+                <th>Rua</th>
+                <th>Bairro</th>
+                <th>Cidade</th>
             </tr>
         </thead>
         <tbody>
-                {% for fornecedor in fornecedor %}
+                {% for fornecedor in fornecedores %}
                 <tr>
-                    <td>{{ fornecedor.id }}</td>
-                    <td>{{ fornecedor.first_name }}</td>
-                    <td>{{ fornecedor.email }}</td>
-                    <td>{{ fornecedor.cnpj }}</td>
-                    <td>{{ fornecedor.cidade }}</td>
-                    <td>{{ fornecedor.bairro }}</td>
-                    <td>{{ fornecedor.rua }}</td>
-                    <td>{{ fornecedor.numero }}</td>
-                    <td>{{ fornecedor.cep }}</td>
+                    <td>{{ fornecedor[1] }}</td>
+                    <td>{{ fornecedor[2] }}</td>
+                    <td>{{ fornecedor[3] }}</td>
+                    <td>{{ fornecedor[4] }}</td>
+                    <td>{{ fornecedor[5] }}</td>
+                    <td>{{ fornecedor[6] }}</td>
+                    <td>{{ fornecedor[7] }}</td>
+                    <td>{{ fornecedor[8] }}</td>
+                    <td>{{ fornecedor[9] }}</td>
                 </tr>
                 {% endfor %}
         </tbody>
         <tfoot>
-            <th>Name</th>
-            <th>Email</th>
+            <th>Nome</th>
             <th>CNPJ</th>
-            <th>Cidade</th>
-            <th>Bairro</th>
-            <th>Rua</th>
-            <th>Numero</th>
+            <th>E-mail</th>
+            <th>Telefone 1</th>
+            <th>Telefone 2</th>
             <th>CEP</th>
+            <th>Rua</th>
+            <th>Bairro</th>
+            <th>Cidade</th>
         </tfoot>
     </table>  
 </div>

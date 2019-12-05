@@ -316,7 +316,7 @@ $(document).ready(function() {
                   <ul id="demodepart" class="collapse dropdown-header-top">
                       <li><a href="{{ url_for ('clientes.lista_cliente') }}">Clientes</a>
                       </li>
-                      <li><a href="{{ url_for ('blog.lista_fornecedor') }}">Fornecedores</a>
+                      <li><a href="{{ url_for ('fornecedor.lista_fornecedor') }}">Fornecedores</a>
                       </li>
                        <li><a href="{{ url_for ('blog.lista_funcionario') }}">Funcionário</a> 
                       </li>
@@ -377,7 +377,7 @@ $(document).ready(function() {
               <ul class="notika-main-menu-dropdown">
                   <li><a href="{{ url_for ('clientes.lista_cliente') }}">Clientes</a>
                   </li>
-                  <li><a href="{{ url_for ('blog.lista_fornecedor') }}">Fornecedores</a>
+                  <li><a href="{{ url_for ('fornecedor.lista_fornecedor') }}">Fornecedores</a>
                   </li>
                    <li><a href="{{ url_for ('blog.lista_funcionario') }}">Funcionário</a> 
                   </li>
@@ -393,7 +393,7 @@ $(document).ready(function() {
               <ul class="notika-main-menu-dropdown">
                   <li><a href="{{ url_for ('clientes.cadastrar_cliente') }}">Cadastrar Cliente</a>
                   </li>
-                  <li><a href="{{ url_for ('blog.cadastrar_fornecedor') }}">Cadastrar Fornecedor</a>
+                  <li><a href="{{ url_for ('fornecedor.criar_fornecedor') }}">Cadastrar Fornecedor</a>
                   </li>
                   <li><a href="{{ url_for ('blog.cadastrar_funcionario') }}">Cadastrar Funcionário</a> 
                   </li>
@@ -446,7 +446,7 @@ $(document).ready(function() {
   <div class="container">
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <form action="{{ url_for ('blog.create_fornecedor') }}" method="POST">
+        <form action="{{ url_for ('fornecedor.criar_fornecedor') }}" method="POST">
           <div class="form-element-list">
             <div class="row">
               <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
