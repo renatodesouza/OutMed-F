@@ -1,5 +1,5 @@
 {% extends 'blog/base_tabela.html' %}
-
+{% block title %}Clientes | StokBook {% endblock %}
 {% block content_tabela_cliente %}
 <div class="basic-tb-hd">
     {% block content_titulo_cliente %}
@@ -10,37 +10,48 @@
     <table id="data-table-basic" class="table table-striped">
         <thead>
             <tr>
-                <th>Name</th>
+                <th>ID</th>
+                <th>Nome</th>
                 <th>Sobrenome</th>
                 <th>Email</th>
-                <th>Celular</th>
-                <th>Fixo</th>
-                <th>Cidade</th>
-                <th>Bairro</th>
-                <th>Rua</th>
-                <th>Numero</th>
+                <th>Telefone primário</th>
+                <th>Telefone secundário</th>
                 <th>CEP</th>
+                <th>Rua</th>
+                <th>Bairro</th>
+                <th>Cidade</th>
+                <th>Estado</th>
             </tr>
         </thead>
         <tbody>
-            <p>esses {{clientes}}</p>
+            {% for cliente in clientes %}
             <tr>
-                <td>{{ clientes.nome }}</td>
-                <td>{{ clientes.sobrenome }}</td>
+                <td>{{ cliente[0] }}</td>
+                <td>{{ cliente[1] }}</td>
+                <td>{{ cliente[2] }}</td>
+                <td>{{ cliente[3] }}</td>
+                <td>{{ cliente[4] }}</td>
+                <td>{{ cliente[5] }}</td>
+                <td>{{ cliente[6] }}</td>
+                <td>{{ cliente[7] }}</td>
+                <td>{{ cliente[8] }}</td>
+                <td>{{ cliente[9] }}</td>
+                <td>{{ cliente[10] }}</td>
             </tr>
-            
+            {% endfor %}
         </tbody>
         <tfoot>
-             <th>Name</th>
-             <th>Sobrenome</th>
-             <th>Email</th>
-             <th>Celular</th>
-             <th>Fixo</th>
-             <th>Cidade</th>
-             <th>Bairro</th>
-             <th>Rua</th>
-             <th>Numero</th>
-             <th>CEP</th>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Sobrenome</th>
+            <th>Email</th>
+            <th>Telefone primário</th>
+            <th>Telefone secundário</th>
+            <th>CEP</th>
+            <th>Rua</th>
+            <th>Bairro</th>
+            <th>Cidade</th>
+            <th>Estado</th>
         </tfoot>
     </table>
 </div>

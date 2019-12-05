@@ -240,7 +240,7 @@
                 </li>
                 <li><a data-toggle="collapse" data-target="#demodepart" href="#">Tabelas</a>
                   <ul id="demodepart" class="collapse dropdown-header-top">
-                      <li><a href="{{ url_for ('blog.lista_cliente') }}">Clientes</a>
+                      <li><a href="{{ url_for ('clientes.lista_cliente') }}">Clientes</a>
                       </li>
                       <li><a href="{{ url_for ('blog.lista_fornecedor') }}">Fornecedores</a>
                       </li>
@@ -256,7 +256,7 @@
                 </li>
                 <li><a data-toggle="collapse" data-target="#demo" href="#">Cadastrar</a>
                   <ul id="demo" class="collapse dropdown-header-top">
-                    <li><a href="{{ url_for ('blog.cadastrar_cliente') }}">Cadastrar Cliente</a>
+                    <li><a href="{{ url_for ('clientes.cadastrar_cliente') }}">Cadastrar Cliente</a>
                     </li>
                     <li><a href="">Cadastrar Fornecedor</a>
                     </li>
@@ -299,7 +299,7 @@
             </div>
             <div id="Tables" class="tab-pane notika-tab-menu-bg animated flipInX">
               <ul class="notika-main-menu-dropdown">
-                <li><a href="{{ url_for ('blog.lista_cliente') }}">Clientes</a>
+                <li><a href="{{ url_for ('clientes.lista_cliente') }}">Clientes</a>
                 </li>
                 <li><a href="{{ url_for ('blog.lista_fornecedor') }}">Fornecedores</a>
                 </li>
@@ -316,7 +316,7 @@
             </div>
             <div id="Forms" class="tab-pane notika-tab-menu-bg animated flipInX">
               <ul class="notika-main-menu-dropdown">
-                <li><a href="{{ url_for ('blog.cadastrar_cliente') }}">Cadastrar Cliente</a>
+                <li><a href="{{ url_for ('clientes.cadastrar_cliente') }}">Cadastrar Cliente</a>
                 </li>
                 <li><a href="{{ url_for ('blog.cadastrar_fornecedor') }}">Cadastrar Fornecedor</a>
                 </li>
@@ -447,7 +447,7 @@ $(document).ready(function() {
   <div class="container">
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <form action="{{ url_for ('blog.create_cliente') }}" method="POST">
+        <form action="{{ url_for ('clientes.cadastrar_cliente') }}" method="POST">
           <div class="form-element-list">
             <div class="row">
               <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
