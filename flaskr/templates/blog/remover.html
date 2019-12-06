@@ -253,7 +253,7 @@
                       </li>
                       <li><a href="{{ url_for ('blog.lista_devolucao') }}">Devoluções</a>
                       </li>
-                      <li><a href="{{ url_for ('livros.remover_livro') }}">Excluir livros</a>
+                      <li><a href="{{ url_for ('livros.remover_livro') }}">Remover livros</a>
                       </li>
                   </ul>
                 </li>
@@ -296,7 +296,6 @@
             </li>
             <li><a data-toggle="tab" href="#Forms"><i class="notika-icon notika-form"></i> Cadastrar</a>
             </li>
-            <li><a data-toggle="tab" href="#Forms"><i class="notika-icon notika-form"></i>Excluir dados</a></li>
           </ul>
           <div class="tab-content custom-menu-content">
             <div id="mailbox" class="tab-pane notika-tab-menu-bg animated flipInX">
@@ -331,6 +330,8 @@
                 <li><a href="{{ url_for ('pedido.cadastrar_pedido') }}">Cadastrar Pedido</a>
                 </li>
                 <li><a href="{{ url_for ('blog.cadastrar_devolucao') }}">Devoluções</a>
+                </li>
+                <li><a href="{{ url_for ('livros.remover_livro') }}">Remover Livros</a>
                 </li>
               </ul>
             </div>
