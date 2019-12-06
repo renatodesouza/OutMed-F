@@ -72,20 +72,20 @@ CREATE TABLE livro(
 CREATE TABLE pedido(
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	isbn VARCHAR(13),
-	id_cliente INTEGER,
-	id_funcionario INTEGER,
+	nome_cliente VARCHAR(50),
 	data_pedido DATE,
-	valor decimal (10, 2),
-	FOREIGN key (isbn) REFERENCES livro(isbn),
-	FOREIGN key (id_cliente) REFERENCES cliente(id),
-	FOREIGN key (id_funcionario) REFERENCES funcionario(id)
+	valor_venda decimal (10, 2),
+	quantidade SMALLINT,
+	codrastreamento VARCHAR(30),
+	FOREIGN key (isbn) REFERENCES livro(isbn)
 );
 
 CREATE TABLE devolucao(
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	livro VARCHAR(100),
-	motivo VARCHAR(100),
-	cliente VARCHAR(100)
+	isbn VARCHAR(13),
+	cliente VARCHAR(100),
+	motivo VARCHAR(100)
 );
 
 CREATE TABLE contato_fornecedor(
