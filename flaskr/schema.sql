@@ -65,7 +65,6 @@ CREATE TABLE livro(
 	edicao TINYINT,
 	titulo VARCHAR (100),
 	categoria VARCHAR (30),
-	preco_venda DECIMAL(10, 5),
 	preco_compra DECIMAL(10, 5),
 	quantidade SMALLINT
 );

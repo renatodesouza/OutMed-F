@@ -9,7 +9,7 @@ from flaskr.db import get_db
 lv = Blueprint('livros', __name__)
 
 
-@lv.route('/lista_livro', methods=('GET', 'POST'))
+@lv.route('/lista_livro', methods=['GET'])
 def lista_livro():
     con = sqlite3.connect('instance/flaskr.sqlite')
     cur = con.cursor()
@@ -29,19 +29,24 @@ def cadastrar_livro():
         edicao = request.form['edicao']
         titulo = request.form['titulo']
         categoria = request.form['categoria']
-        preco_venda = request.form['preco_venda']
         preco_compra = request.form['preco_compra']
         quantidade = request.form['quantidade']
 
         db = get_db()
         db.execute(
-            'INSERT INTO livro (isbn, autor, editora, edicao, titulo, categoria, preco_venda, preco_compra, quantidade)'
-            ' VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
-            (isbn, autor, editora, edicao, titulo, categoria, preco_venda, preco_compra, quantidade)
+            'INSERT INTO livro (isbn, autor, editora, edicao, titulo, categoria, preco_compra, quantidade)'
+            ' VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+            (isbn, autor, editora, edicao, titulo, categoria, preco_compra, quantidade)
         )
         db.commit()
-
         return redirect(url_for('livros.lista_livro'))
+    return render_template('blog/livros.html')
 
+
+@lv.route('/remover_livro/<int:isbn>', methods=['DELETE'])
+def remover_livro(isbn):
+    con = sqlite3.connect('instance/flaskr.sqlite')
+    cur = con.cursor()
+    cur.execute(f'DELETE FROM livro WHERE isbn = ?', isbn)
     return render_template('blog/livros.html')
 
