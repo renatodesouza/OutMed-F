@@ -42,10 +42,14 @@ def cadastrar_livro():
         return redirect(url_for('livros.lista_livro'))
     return render_template('blog/livros.html')
 
-@lv.route('/remover_livro', defaults={'isbn': None}, methods=['GET', 'POST'])
-@lv.route('/remover_livro/<string:isbn>', methods=['GET', 'POST'])
-def remover_livro(isbn):
-    db = get_db()
-    db.execute('DELETE FROM livro WHERE isbn = ?', (isbn, ))
-    db.commit()
+
+@lv.route('/remover_livro', methods=('POST', 'GET'))
+def remover_livro():
+    if request.method == 'POST':
+        isbn = request.form['isbn']
+        
+        db = get_db()
+        db.execute('DELETE FROM livro WHERE isbn = ?', (isbn, ))
+        db.commit()
+        return redirect(url_for('livros.lista_livro'))
     return render_template('blog/remover.html')
