@@ -22,36 +22,31 @@ def lista_representante():
     #devolucao = devolucao.query.all()
     return render_template('blog/listar_contato.html')
 
-
-#---------------------DEVOLUCAO-----------------------------
 @bp.route('/cadastrar_devolucao', methods=('GET', 'POST'))
 def cadastrar_devolucao():
+    if request.method == 'POST':   
+        livro_devolvido = request.form['livro_devolvido']
+        motivo = request.form['motivo']
+        nome_cliente = request.form['nome_cliente']
+
+        db = get_db()
+        db.execute(
+            'INSERT INTO devolucao (livro, motivo, cliente)'
+            ' VALUES (?, ?, ?)',
+            (livro_devolvido, motivo, nome_cliente)
+        )
+        db.commit()
+
+        return redirect(url_for('blog.lista_devolucao'))
+
     return render_template('blog/devolucao.html')
 
 @bp.route('/lista_devolucao', methods=('GET', 'POST'))
 def lista_devolucao():
-    #devolucao = devolucao.query.all()
-    return render_template('blog/lista_devolucao.html')
-    
-    
-
-
-#-----------------CRIA DEVOLUCAO----------------------------
-@bp.route('/create_devolucao', methods=('GET', 'POST'))
-def create_devolucao():
-    if request.method == 'POST':   
-        id_pedido = request.form['id_pedido']
-        id_cliente = request.form['id_cliente']
-        id_funcionario = request.form['id_funcionario']
-
-        db = get_db()
-        db.execute(
-            'INSERT INTO devolucao (id_pedido, id_cliente, id_funcionario)'
-            ' VALUES (?, ?, ?)',
-            (id_pedido, id_cliente, id_funcionario)
-        )
-        db.commit()
-
-        return redirect(url_for('blog.index'))
-
-    return render_template('blog/devolucao.html')
+    con = sqlite3.connect('instance/flaskr.sqlite')
+    cur = con.cursor()
+    cur.execute('SELECT * FROM devolucao;')
+    devolucoes = cur.fetchall()
+    cur.close()
+    con.close()
+    return render_template('blog/lista_devolucao.html', devolucoes=devolucoes)

@@ -84,12 +84,9 @@ CREATE TABLE pedido(
 
 CREATE TABLE devolucao(
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
-	id_pedido INTEGER,
-	id_cliente INTEGER,
-	id_funcionario INTEGER,
-	FOREIGN key (id_cliente) REFERENCES cliente(id)
-	FOREIGN key (id_pedido) REFERENCES pedido(id)
-	FOREIGN key (id_funcionario) REFERENCES funcioanrio(id)
+	livro VARCHAR(100),
+	motivo VARCHAR(100),
+	cliente VARCHAR(100)
 );
 
 CREATE TABLE contato_fornecedor(

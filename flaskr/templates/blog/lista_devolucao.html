@@ -11,24 +11,27 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Data</th>
+                <th>Livro</th>
                 <th>Motivo</th>
+                <th>Cliente</th>
             </tr>
         </thead>
         <tbody>
-            {% for devolucao in devolucao %}
+            {% for devolucao in devolucoes %}
             <tr>
-                <td>{{ devolucao.id }}</td>
-                <td>{{ devolucao.Data }}</td>
-                <td>{{ devolucao.Motivo }}</td>
+                <td>{{ devolucao[0] }}</td>
+                <td>{{ devolucao[1] }}</td>
+                <td>{{ devolucao[2] }}</td>
+                <td>{{ devolucao[3] }}</td>
             </tr>
             {% endfor %}
         </tbody>
         <tfoot>
             <tr>
                 <th>ID</th>
-                <th>Data</th>
+                <th>Livro</th>
                 <th>Motivo</th>
+                <th>Cliente</th>
             </tr>
         </tfoot>
     </table>
