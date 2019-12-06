@@ -42,11 +42,10 @@ def cadastrar_livro():
         return redirect(url_for('livros.lista_livro'))
     return render_template('blog/livros.html')
 
-
-@lv.route('/remover_livro/<int:isbn>', methods=['DELETE'])
+@lv.route('/remover_livro', defaults={'isbn': None}, methods=['GET', 'POST'])
+@lv.route('/remover_livro/<string:isbn>', methods=['GET', 'POST'])
 def remover_livro(isbn):
-    con = sqlite3.connect('instance/flaskr.sqlite')
-    cur = con.cursor()
-    cur.execute(f'DELETE FROM livro WHERE isbn = ?', isbn)
-    return render_template('blog/livros.html')
-
+    db = get_db()
+    db.execute('DELETE FROM livro WHERE isbn = ?', (isbn, ))
+    db.commit()
+    return render_template('blog/remover.html')
